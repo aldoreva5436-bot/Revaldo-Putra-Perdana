@@ -12,8 +12,7 @@ body {
     color: #333;
 
     /* BACKGROUND GAMBAR */
-    background: linear-gradient(rgba(255,102,0,0.8), rgba(255,153,102,0.8)),
-                url('background.jpeg');
+    background: url('./background.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -38,28 +37,33 @@ h1 {
     color: white;
     margin-top: 10px;
     font-size: 24px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
 
 /* GRID */
 .container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
+    gap: 15px;
     padding: 20px;
 }
 
+/* BOX TRANSPARAN */
 .box {
-    background: rgba(255,255,255,0.95);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
     border-radius: 15px;
     padding: 15px;
     min-height: 160px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     transition: 0.3s;
 }
 
 .box:hover {
-    transform: translateY(-5px) scale(1.02);
-    background: #fff3e6;
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.9);
 }
 
 .title {
@@ -95,7 +99,7 @@ li {
 
 <!-- LOGO -->
 <div class="logo">
-    <img src="logo.png" alt="Logo UDW">
+    <img src="./logo.png" alt="Logo">
 </div>
 
 <h1>🍱 Business Model Canvas - MoodFood</h1>
