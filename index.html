@@ -9,9 +9,6 @@
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    color: #333;
-
-    /* BACKGROUND GAMBAR */
     background: url('./background.jpeg');
     background-size: cover;
     background-position: center;
@@ -28,15 +25,12 @@ body {
     width: 6vw;
     max-width: 90px;
     min-width: 60px;
-    height: auto;
 }
 
 /* JUDUL */
 h1 {
     text-align: center;
     color: white;
-    margin-top: 10px;
-    font-size: 24px;
     text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
 
@@ -48,22 +42,18 @@ h1 {
     padding: 20px;
 }
 
-/* BOX TRANSPARAN */
+/* BOX */
 .box {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255,255,255,0.75);
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
     border-radius: 15px;
     padding: 15px;
-    min-height: 160px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
     transition: 0.3s;
 }
 
 .box:hover {
-    transform: translateY(-5px);
-    background: rgba(255,255,255,0.9);
+    transform: scale(1.05);
 }
 
 .title {
@@ -72,14 +62,32 @@ h1 {
     margin-bottom: 10px;
 }
 
-ul {
-    padding-left: 18px;
-    margin: 0;
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
 }
 
-li {
-    margin-bottom: 5px;
-    font-size: 13px;
+.modal img {
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    margin: 5% auto;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 /* RESPONSIVE */
@@ -87,125 +95,120 @@ li {
     .container {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    h1 {
-        font-size: 18px;
-    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGO -->
 <div class="logo">
-    <img src="./logo.png" alt="Logo">
+    <img src="./logo.png">
 </div>
 
 <h1>🍱 Business Model Canvas - MoodFood</h1>
 
 <div class="container">
 
-<div class="box">
+<div class="box" onclick="showImg('img1.jpg')">
 <div class="title">Key Partners</div>
 <ul>
-<li>Supplier lokal & petani</li>
+<li>Supplier lokal</li>
 <li>Ojek online</li>
-<li>Food influencer</li>
-<li>Developer AI</li>
-<li>Desainer kemasan</li>
+<li>Influencer</li>
+<li>Developer</li>
 </ul>
 </div>
 
-<div class="box">
+<div class="box" onclick="showImg('img2.jpg')">
 <div class="title">Key Activities</div>
 <ul>
-<li>Produksi makanan berbasis mood</li>
-<li>Riset tren Gen-Z</li>
-<li>Konten TikTok & IG</li>
-<li>Pengembangan quiz mood</li>
+<li>Produksi makanan</li>
+<li>Konten TikTok</li>
+<li>Riset tren</li>
+</ul>
+</div>
+
+<div class="box" onclick="showImg('img3.jpg')">
+<div class="title">Value Proposition</div>
+<ul>
+<li>Makanan sesuai mood</li>
+<li>Menu unik</li>
 <li>Packaging aesthetic</li>
 </ul>
 </div>
 
-<div class="box">
-<div class="title">Value Propositions</div>
+<div class="box" onclick="showImg('img4.jpg')">
+<div class="title">Customer Relationship</div>
 <ul>
-<li>Makanan sesuai mood</li>
-<li>Menu unik & kekinian</li>
-<li>Packaging estetik</li>
-<li>Experience berbeda</li>
-<li>Limited edition menu</li>
-</ul>
-</div>
-
-<div class="box">
-<div class="title">Customer Relationships</div>
-<ul>
-<li>Quiz mood harian</li>
+<li>Quiz mood</li>
 <li>DM interaktif</li>
-<li>Reward pelanggan</li>
-<li>Repost konten</li>
-<li>Pesan personal</li>
+<li>Reward</li>
 </ul>
 </div>
 
-<div class="box">
+<div class="box" onclick="showImg('img5.jpg')">
 <div class="title">Customer Segments</div>
 <ul>
 <li>Gen-Z</li>
 <li>Mahasiswa</li>
 <li>Anak kos</li>
-<li>Pecinta aesthetic</li>
-<li>Self-healing lovers</li>
 </ul>
 </div>
 
-<div class="box">
+<div class="box" onclick="showImg('img6.jpg')">
 <div class="title">Key Resources</div>
 <ul>
-<li>Dapur kreatif</li>
+<li>Dapur</li>
 <li>Tim konten</li>
-<li>Sistem AI sederhana</li>
-<li>Brand identity</li>
-<li>Resep unik</li>
+<li>Brand</li>
 </ul>
 </div>
 
-<div class="box">
+<div class="box" onclick="showImg('img7.jpg')">
 <div class="title">Channels</div>
 <ul>
 <li>TikTok</li>
 <li>Instagram</li>
-<li>WhatsApp</li>
-<li>GoFood/ShopeeFood</li>
-<li>Website</li>
+<li>GoFood</li>
 </ul>
 </div>
 
-<div class="box">
+<div class="box" onclick="showImg('img8.jpg')">
 <div class="title">Cost Structure</div>
 <ul>
 <li>Bahan baku</li>
-<li>Gaji tim</li>
-<li>Iklan & konten</li>
-<li>Packaging</li>
-<li>Pengembangan sistem</li>
+<li>Gaji</li>
+<li>Iklan</li>
 </ul>
 </div>
 
-<div class="box">
+<div class="box" onclick="showImg('img9.jpg')">
 <div class="title">Revenue Streams</div>
 <ul>
-<li>Penjualan makanan</li>
-<li>Mood Box</li>
+<li>Penjualan</li>
 <li>Subscription</li>
-<li>Kolaborasi brand</li>
 <li>Merchandise</li>
 </ul>
 </div>
 
 </div>
+
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="closeImg()">
+<span class="close">&times;</span>
+<img id="modalImg">
+</div>
+
+<script>
+function showImg(src) {
+    document.getElementById("modal").style.display = "block";
+    document.getElementById("modalImg").src = src;
+}
+
+function closeImg() {
+    document.getElementById("modal").style.display = "none";
+}
+</script>
 
 </body>
 </html>
