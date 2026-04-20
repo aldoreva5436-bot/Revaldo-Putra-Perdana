@@ -3,271 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MoodFood BMC</title>
+<title>Flamboyan Coffee BMC</title>
 
 <style>
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    background: url('./background.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial;}
+
+.background{
+position:fixed;inset:0;width:100%;height:100%;
+object-fit:cover;z-index:-2;
 }
 
-/* LOGO */
-.logo {
-    text-align: center;
-    margin-top: 15px;
+.overlay{
+position:fixed;inset:0;background:rgba(255,255,255,0.3);
+z-index:-1;
 }
 
-.logo img {
-    width: 6vw;
-    max-width: 90px;
-    min-width: 60px;
+.container{padding:20px;}
+.header{text-align:center;margin-bottom:20px;}
+
+.header img{width:80px;margin-bottom:10px;}
+.header h1{color:white;text-shadow:2px 2px 10px black;}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:15px;
 }
 
-/* JUDUL */
-h1 {
-    text-align: center;
-    color: white;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+.box{
+background:rgba(255,255,255,0.8);
+padding:15px;border-radius:15px;
+cursor:pointer;
+transition:0.3s;
 }
 
-/* GRID */
-.container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
-    padding: 20px;
+.box:hover{
+transform:translateY(-5px);
 }
 
-/* BOX */
-.box {
-    background: rgba(255,255,255,0.75);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 15px;
-    padding: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+.box h3{color:#ff6b00;margin-bottom:8px;}
 
-.box:hover {
-    transform: scale(1.05);
-}
+.box ul{padding-left:20px;}
 
-.title {
-    font-weight: bold;
-    color: #ff6600;
-    margin-bottom: 10px;
-}
-
-ul {
-    padding-left: 18px;
-}
-
-li {
-    font-size: 13px;
-}
+.wide{grid-column:span 2;}
 
 /* MODAL */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0; top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
+.modal{
+position:fixed;inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+background:rgba(0,0,0,0);
+opacity:0;visibility:hidden;
+transition:0.3s;
 }
 
-.modal-content {
-    text-align: center;
-    color: white;
-    margin-top: 5%;
+.modal.show{
+opacity:1;visibility:visible;
+background:rgba(0,0,0,0.7);
 }
 
-.modal img {
-    max-width: 80%;
-    max-height: 60vh;
-    border-radius: 10px;
+.modal-content{
+background:white;
+padding:20px;
+border-radius:20px;
+width:400px;
+text-align:center;
+transform:scale(0.8);
+opacity:0;
+transition:0.3s;
 }
 
-.close {
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    font-size: 35px;
-    color: white;
-    cursor: pointer;
+.modal.show .modal-content{
+transform:scale(1);
+opacity:1;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.modal img{
+width:100%;height:200px;
+object-fit:cover;
+border-radius:10px;
+margin:10px 0;
+}
+
+.close{
+position:absolute;
+right:20px;top:10px;
+font-size:30px;
+cursor:pointer;
+}
+
+/* FLOAT IG */
+.ig-float{
+position:fixed;
+bottom:20px;right:20px;
+width:60px;height:60px;
+background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+z-index:999;
+transition:0.3s;
+}
+
+.ig-float img{
+width:30px;
+filter:invert(1);
+}
+
+.ig-float:hover{
+transform:scale(1.15);
 }
 </style>
 </head>
 
 <body>
 
-<div class="logo">
-    <img src="./logo.png" alt="Logo">
-</div>
-
-<h1>🍱 Business Model Canvas - MoodFood</h1>
+<img src="Background.jpeg" class="background">
+<div class="overlay"></div>
 
 <div class="container">
-
-<div class="box" onclick="showImg('img1.jpg')">
-<div class="title">Key Partners</div>
-<ul>
-<li>Supplier lokal</li>
-<li>Ojek online</li>
-<li>Influencer</li>
-<li>Developer</li>
-</ul>
+<div class="header">
+<img src="logo.png">
+<h1>☕ Flamboyan Coffee</h1>
 </div>
 
-<div class="box" onclick="showImg('img2.jpg')">
-<div class="title">Key Activities</div>
-<ul>
-<li>Produksi makanan</li>
-<li>Konten TikTok</li>
-<li>Riset tren</li>
-</ul>
+<div class="grid">
+
+<div class="box" onclick="showDetail('Key Partners','img1.png','Kerja sama supplier kopi, ojek online, influencer.')">
+<h3>Key Partners</h3>
+<ul><li>Supplier kopi</li><li>Ojek online</li><li>Influencer</li></ul>
 </div>
 
-<div class="box" onclick="showImg('img3.jpg')">
-<div class="title">Value Proposition</div>
-<ul>
-<li>Makanan sesuai mood</li>
-<li>Menu unik</li>
-<li>Packaging aesthetic</li>
-</ul>
+<div class="box" onclick="showDetail('Key Activities','img2.png','Menyeduh kopi, pelayanan, promosi.')">
+<h3>Key Activities</h3>
+<ul><li>Menyeduh kopi</li><li>Pelayanan</li><li>Promosi</li></ul>
 </div>
 
-<div class="box" onclick="showImg('img4.jpg')">
-<div class="title">Customer Relationship</div>
-<ul>
-<li>Quiz mood</li>
-<li>DM interaktif</li>
-<li>Reward</li>
-</ul>
+<div class="box wide" onclick="showDetail('Value Proposition','img3.png','Kopi enak, tempat nyaman, estetik.')">
+<h3>Value Proposition</h3>
+<ul><li>Kopi berkualitas</li><li>Tempat nyaman</li><li>Estetik</li></ul>
 </div>
 
-<div class="box" onclick="showImg('img5.jpg')">
-<div class="title">Customer Segments</div>
-<ul>
-<li>Gen-Z</li>
-<li>Mahasiswa</li>
-<li>Anak kos</li>
-</ul>
+<div class="box" onclick="showDetail('Customer Relationship','img4.png','Pelayanan ramah & loyalitas.')">
+<h3>Customer Relationship</h3>
+<ul><li>Pelayanan ramah</li><li>Promo</li></ul>
 </div>
 
-<div class="box" onclick="showImg('img6.jpg')">
-<div class="title">Key Resources</div>
-<ul>
-<li>Dapur</li>
-<li>Tim konten</li>
-<li>Brand</li>
-</ul>
+<div class="box" onclick="showDetail('Customer Segments','img5.png','Mahasiswa & pekerja.')">
+<h3>Customer Segments</h3>
+<ul><li>Mahasiswa</li><li>Pekerja</li></ul>
 </div>
 
-<div class="box" onclick="showImg('img7.jpg')">
-<div class="title">Channels</div>
-<ul>
-<li>TikTok</li>
-<li>Instagram</li>
-<li>GoFood</li>
-</ul>
+<div class="box" onclick="showDetail('Key Resources','img6.png','Barista & mesin kopi.')">
+<h3>Key Resources</h3>
+<ul><li>Barista</li><li>Mesin kopi</li></ul>
 </div>
 
-<div class="box" onclick="showImg('img8.jpg')">
-<div class="title">Cost Structure</div>
-<ul>
-<li>Bahan baku</li>
-<li>Gaji</li>
-<li>Iklan</li>
-</ul>
+<div class="box" onclick="showDetail('Channels','img7.png','Instagram & GoFood.')">
+<h3>Channels</h3>
+<ul><li>Instagram</li><li>GoFood</li></ul>
 </div>
 
-<div class="box" onclick="showImg('img9.jpg')">
-<div class="title">Revenue Streams</div>
-<ul>
-<li>Penjualan</li>
-<li>Subscription</li>
-<li>Merchandise</li>
-</ul>
+<div class="box" onclick="showDetail('Cost Structure','img8.png','Bahan & gaji.')">
+<h3>Cost Structure</h3>
+<ul><li>Bahan baku</li><li>Gaji</li></ul>
 </div>
 
+<div class="box wide" onclick="showDetail('Revenue Streams','img9.png','Penjualan kopi.')">
+<h3>Revenue Streams</h3>
+<ul><li>Penjualan kopi</li></ul>
+</div>
+
+</div>
 </div>
 
 <!-- MODAL -->
-<div id="modal" class="modal" onclick="closeImg()">
-<span class="close">&times;</span>
-<div class="modal-content">
-    <h2 id="imgTitle"></h2>
-    <img id="modalImg">
-    <p id="imgDesc" style="max-width:600px; margin:auto;"></p>
+<div id="modal" class="modal" onclick="closeModal()">
+<div class="modal-content" onclick="event.stopPropagation()">
+<span class="close" onclick="closeModal()">&times;</span>
+<h2 id="title"></h2>
+<img id="img">
+<p id="desc"></p>
 </div>
 </div>
+
+<!-- FLOAT IG -->
+<a href="https://instagram.com/flmboyan.coffe_" target="_blank" class="ig-float">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+</a>
 
 <script>
-const data = {
-    "img1.jpg": {
-        title: "Key Partners",
-        desc: "Kerjasama dengan supplier lokal, ojek online, dan influencer untuk mendukung distribusi dan promosi produk."
-    },
-    "img2.jpg": {
-        title: "Key Activities",
-        desc: "Produksi makanan, pembuatan konten digital, dan riset tren Gen-Z."
-    },
-    "img3.jpg": {
-        title: "Value Proposition",
-        desc: "Menyediakan makanan sesuai mood dengan konsep aesthetic dan pengalaman unik."
-    },
-    "img4.jpg": {
-        title: "Customer Relationship",
-        desc: "Interaksi melalui quiz, DM, dan reward untuk meningkatkan loyalitas pelanggan."
-    },
-    "img5.jpg": {
-        title: "Customer Segments",
-        desc: "Target utama Gen-Z, mahasiswa, dan anak kos yang suka tren kekinian."
-    },
-    "img6.jpg": {
-        title: "Key Resources",
-        desc: "Dapur kreatif, tim konten, dan brand identity sebagai aset utama."
-    },
-    "img7.jpg": {
-        title: "Channels",
-        desc: "Distribusi melalui TikTok, Instagram, dan layanan delivery online."
-    },
-    "img8.jpg": {
-        title: "Cost Structure",
-        desc: "Biaya bahan baku, gaji tim, iklan, dan operasional bisnis."
-    },
-    "img9.jpg": {
-        title: "Revenue Streams",
-        desc: "Pendapatan dari penjualan makanan, subscription, dan merchandise."
-    }
-};
-
-function showImg(src) {
-    document.getElementById("modal").style.display = "block";
-    document.getElementById("modalImg").src = src;
-    document.getElementById("imgTitle").innerText = data[src].title;
-    document.getElementById("imgDesc").innerText = data[src].desc;
+function showDetail(t,i,d){
+document.getElementById("title").innerText=t;
+document.getElementById("img").src=i;
+document.getElementById("desc").innerText=d;
+document.getElementById("modal").classList.add("show");
 }
 
-function closeImg() {
-    document.getElementById("modal").style.display = "none";
+function closeModal(){
+document.getElementById("modal").classList.remove("show");
 }
 </script>
 
 </body>
 </html>
-
