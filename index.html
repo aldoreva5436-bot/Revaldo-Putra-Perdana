@@ -10,16 +10,28 @@
 
 body{
 font-family:Arial;
-background:#3e2723;
-color:#222;
+background:linear-gradient(135deg,#1c1c1c,#3e2723);
+color:#eee;
 }
 
+/* HEADER */
 .container{padding:20px;}
-.header{text-align:center;margin-bottom:20px;}
+.header{text-align:center;margin-bottom:30px;}
+
+.header img{
+width:80px;
+margin-bottom:10px;
+}
 
 .header h1{
-color:white;
-text-shadow:2px 2px 10px black;
+color:#fff;
+font-size:2rem;
+letter-spacing:1px;
+text-shadow:0 0 15px rgba(255,140,0,0.5);
+}
+
+.header p{
+color:#ccc;
 }
 
 /* BMC */
@@ -30,17 +42,22 @@ gap:15px;
 }
 
 .box{
-background:rgba(255,255,255,0.9);
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
 padding:15px;
 border-radius:15px;
 cursor:pointer;
 transition:0.3s;
+border:1px solid rgba(255,255,255,0.1);
 }
 
-.box:hover{transform:translateY(-5px);}
+.box:hover{
+transform:translateY(-6px);
+background:rgba(255,255,255,0.15);
+}
 
-.box h3{color:#ff6b00;margin-bottom:8px;}
-.box ul{padding-left:20px;}
+.box h3{color:#ff9800;margin-bottom:8px;}
+.box ul{padding-left:20px;color:#ddd;}
 
 .wide{grid-column:span 2;}
 
@@ -53,30 +70,40 @@ margin-top:30px;
 }
 
 .menu-category{
-background:rgba(255,255,255,0.9);
-border-radius:18px;
+background:rgba(255,255,255,0.08);
 padding:18px;
-box-shadow:0 10px 20px rgba(0,0,0,0.2);
+border-radius:15px;
+backdrop-filter:blur(10px);
 }
 
 .menu-category h3{
+color:#ffb74d;
 margin-bottom:10px;
-color:#6d3d22;
 }
-
-.menu-category ul{list-style:none;}
 
 .menu-category li{
 display:flex;
 justify-content:space-between;
 padding:6px 0;
-border-bottom:1px dashed #ccc;
-font-size:0.95rem;
+border-bottom:1px dashed rgba(255,255,255,0.2);
+font-size:0.9rem;
 }
 
 .menu-category li:last-child{border-bottom:none;}
+.menu-category b{color:#ffcc80;}
 
-.menu-category b{color:#8b4513;}
+/* MAP */
+.map{
+margin-top:40px;
+text-align:center;
+}
+
+.map iframe{
+width:100%;
+height:300px;
+border-radius:15px;
+border:none;
+}
 
 /* MODAL */
 .modal{
@@ -98,7 +125,7 @@ background:rgba(0,0,0,0.7);
 }
 
 .modal-content{
-background:white;
+background:#222;
 padding:20px;
 border-radius:20px;
 width:350px;
@@ -106,6 +133,7 @@ text-align:center;
 transform:scale(0.8);
 opacity:0;
 transition:0.3s;
+color:white;
 }
 
 .modal.show .modal-content{
@@ -119,6 +147,7 @@ right:20px;
 top:10px;
 font-size:30px;
 cursor:pointer;
+color:white;
 }
 
 /* FLOAT BUTTON */
@@ -137,10 +166,8 @@ z-index:999;
 .ig-float{bottom:90px;background:#e1306c;}
 .wa-float{bottom:20px;background:#25D366;}
 
-.ig-float img,.wa-float img{
-width:30px;
-filter:invert(1);
-}
+.ig-float img{width:30px;filter:invert(1);}
+.wa-float img{width:35px;}
 
 /* RESPONSIVE */
 @media(max-width:768px){
@@ -149,18 +176,15 @@ filter:invert(1);
 }
 </style>
 </head>
+
 <body>
 
-<div class="coffee-pattern"></div>
-  <div class="overlay"></div>
+<div class="container">
 
-  <div class="container">
-   <div class="header">
-     <img src="logo.jpg" alt="Logo Flamboyan Coffee">
+<div class="header">
+<img src="logo.png">
 <h1>☕ Flamboyan Coffee</h1>
-<p style="color:white;">
-Tempat ngopi nyaman dengan suasana estetik dan pilihan menu favorit.
-</p>
+<p>Tempat ngopi nyaman dengan suasana estetik dan pilihan menu favorit.</p>
 </div>
 
 <!-- BMC -->
@@ -176,17 +200,17 @@ Tempat ngopi nyaman dengan suasana estetik dan pilihan menu favorit.
 <ul><li>Menyeduh kopi</li><li>Pelayanan</li></ul>
 </div>
 
-<div class="box wide" onclick="showDetail('Value Proposition','Kopi enak, tempat nyaman, estetik.')">
+<div class="box wide" onclick="showDetail('Value Proposition','Flamboyan Coffee adalah tempat ngopi nyaman dengan suasana estetik dan pilihan menu favorit.')">
 <h3>Value Proposition</h3>
 <ul><li>Kopi berkualitas</li><li>Tempat nyaman</li></ul>
 </div>
 
-<div class="box" onclick="showDetail('Customer Relationship','Pelayanan ramah & loyalitas.')">
+<div class="box" onclick="showDetail('Customer Relationship','Pelayanan ramah & loyalitas pelanggan.')">
 <h3>Customer Relationship</h3>
 <ul><li>Pelayanan</li><li>Promo</li></ul>
 </div>
 
-<div class="box" onclick="showDetail('Customer Segments','Mahasiswa & pekerja.')">
+<div class="box" onclick="showDetail('Customer Segments','Mahasiswa, pekerja, dan pecinta kopi.')">
 <h3>Customer Segments</h3>
 <ul><li>Mahasiswa</li><li>Pekerja</li></ul>
 </div>
@@ -201,12 +225,12 @@ Tempat ngopi nyaman dengan suasana estetik dan pilihan menu favorit.
 <ul><li>Instagram</li><li>GoFood</li></ul>
 </div>
 
-<div class="box" onclick="showDetail('Cost Structure','Bahan & gaji.')">
+<div class="box" onclick="showDetail('Cost Structure','Bahan baku dan gaji karyawan.')">
 <h3>Cost Structure</h3>
 <ul><li>Bahan baku</li><li>Gaji</li></ul>
 </div>
 
-<div class="box wide" onclick="showDetail('Revenue Streams','Penjualan kopi.')">
+<div class="box wide" onclick="showDetail('Revenue Streams','Pendapatan dari penjualan makanan dan minuman.')">
 <h3>Revenue Streams</h3>
 <ul><li>Penjualan kopi</li></ul>
 </div>
@@ -214,37 +238,29 @@ Tempat ngopi nyaman dengan suasana estetik dan pilihan menu favorit.
 </div>
 
 <!-- MENU -->
-<h2 style="color:white;margin-top:30px;">Menu Flamboyan Coffee</h2>
+<h2 style="margin-top:30px;color:#fff;">Menu</h2>
 
 <div class="menu-list">
 
 <div class="menu-category">
 <h3>🍽️ Makanan</h3>
 <ul>
-<li><span>Aneka Bakaran</span><b>Rp1.000-5.000</b></li>
-<li><span>Ayam Bakar</span><b>Rp15.000</b></li>
-<li><span>Ayam Goreng</span><b>Rp22.000</b></li>
-<li><span>Ayam Kampung</span><b>Rp13.000</b></li>
-<li><span>Pecel Lele</span><b>Rp13.000</b></li>
-<li><span>Nasi Goreng</span><b>Rp10.000</b></li>
-<li><span>Mie Goreng + Telur</span><b>Rp10.000</b></li>
-<li><span>Mie Goreng + Telur + Bakso</span><b>Rp12.000</b></li>
-<li><span>Mie Rebus + Telur</span><b>Rp10.000</b></li>
-<li><span>Mie Rebus + Telur + Bakso</span><b>Rp12.000</b></li>
-<li><span>Pop Mie</span><b>Rp8.000</b></li>
+<li><span>Aneka Bakaran</span><b>Rp1k-5k</b></li>
+<li><span>Ayam Bakar</span><b>Rp15k</b></li>
+<li><span>Ayam Goreng</span><b>Rp22k</b></li>
+<li><span>Ayam Kampung</span><b>Rp13k</b></li>
+<li><span>Pecel Lele</span><b>Rp13k</b></li>
+<li><span>Nasi Goreng</span><b>Rp10k</b></li>
 </ul>
 </div>
 
 <div class="menu-category">
 <h3>🥤 Minuman</h3>
 <ul>
-<li><span>Josu</span><b>Rp5.000</b></li>
-<li><span>Milk Tea</span><b>Rp5.000</b></li>
-<li><span>Aneka Es Coffee</span><b>Rp5.000</b></li>
-<li><span>Es Teh Jumbo</span><b>Rp3.000</b></li>
-<li><span>Es Tawar</span><b>Rp2.000</b></li>
-<li><span>Kopi</span><b>Rp5.000</b></li>
-<li><span>Susu</span><b>Rp5.000</b></li>
+<li><span>Kopi</span><b>Rp5k</b></li>
+<li><span>Milk Tea</span><b>Rp5k</b></li>
+<li><span>Es Teh</span><b>Rp3k</b></li>
+<li><span>Es Tawar</span><b>Rp2k</b></li>
 </ul>
 </div>
 
@@ -255,6 +271,14 @@ Tempat ngopi nyaman dengan suasana estetik dan pilihan menu favorit.
 </ul>
 </div>
 
+</div>
+
+<!-- MAP -->
+<div class="map">
+<h2 style="margin-bottom:10px;">📍 Lokasi Kami</h2>
+<a href="https://maps.app.goo.gl/ozfeKq7vhYprGurh9" target="_blank" style="color:#ffb74d;">
+Lihat di Google Maps
+</a>
 </div>
 
 </div>
@@ -269,12 +293,12 @@ Tempat ngopi nyaman dengan suasana estetik dan pilihan menu favorit.
 </div>
 
 <!-- IG -->
-<a href=https://www.instagram.com/flamboyan.coffe_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw== target="_blank" class="ig-float">
+<a href="https://instagram.com/flmboyan.coffe_" target="_blank" class="ig-float">
 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
 </a>
 
 <!-- WA -->
-<a href="https://wa.me/6285366759351" target="_blank" class="wa-float">
+<a href="https://wa.me/6281234567890" target="_blank" class="wa-float">
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 </a>
 
