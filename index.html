@@ -6,109 +6,316 @@
 <title>Flamboyan Coffee</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
 
 body{
 background:linear-gradient(135deg,#1b1b1b,#2d1f18,#3e2723);
 color:#fff;
 }
 
-.container{padding:20px;max-width:1200px;margin:auto;}
+.container{
+padding:20px;
+max-width:1200px;
+margin:auto;
+}
 
-.header{text-align:center;margin-bottom:30px;}
-.header img{width:80px;border-radius:50%;}
-.header h1{margin-top:10px;text-shadow:0 0 10px orange;}
-.header p{color:#ddd;}
+.header{
+text-align:center;
+margin-bottom:30px;
+}
 
-/* IG LINK */
-.ig-link a{color:#ffb74d;text-decoration:none;}
+.header img{
+width:90px;
+height:90px;
+object-fit:cover;
+border-radius:50%;
+}
+
+.header h1{
+margin-top:10px;
+text-shadow:0 0 10px orange;
+}
+
+.header p{
+color:#ddd;
+margin-top:6px;
+}
+
+.ig-link a{
+color:#ffb74d;
+text-decoration:none;
+}
 
 /* BMC */
 .bmc{
 display:grid;
 grid-template-columns:repeat(5,1fr);
-gap:10px;
-margin:20px 0;
+gap:12px;
+margin:25px 0 35px;
 }
+
 .bmc-box{
 background:rgba(255,255,255,0.08);
-padding:10px;
-border-radius:10px;
+padding:14px;
+border-radius:14px;
 cursor:pointer;
 text-align:center;
+transition:0.3s;
 }
-.bmc-box:hover{background:rgba(255,255,255,0.2);}
-.wide{grid-column:span 2;}
+
+.bmc-box:hover{
+background:rgba(255,255,255,0.18);
+transform:translateY(-4px);
+}
+
+.bmc-box h3{
+color:#ffb74d;
+font-size:15px;
+margin-bottom:6px;
+}
+
+.bmc-box p{
+font-size:12px;
+color:#ddd;
+}
+
+.wide{
+grid-column:span 2;
+}
 
 /* MENU */
+.section-title{
+margin:20px 0 15px;
+color:#fff;
+}
+
 .menu{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
 }
 
 .card{
 background:rgba(255,255,255,0.08);
-padding:15px;
-border-radius:15px;
+padding:16px;
+border-radius:16px;
+backdrop-filter:blur(8px);
+transition:.3s;
 }
 
-.card h3{color:#ffb74d;}
-.price{color:#ffcc80;}
+.card:hover{
+transform:translateY(-5px);
+background:rgba(255,255,255,0.14);
+}
 
-.btn{padding:6px 10px;border:none;border-radius:10px;margin-top:5px;cursor:pointer;}
-.add{background:#6d4c41;color:white;}
-.order{background:#25D366;color:white;}
+.card h3{
+color:#ffb74d;
+margin-bottom:6px;
+}
+
+.card p{
+font-size:13px;
+color:#ddd;
+margin-bottom:8px;
+min-height:34px;
+}
+
+.price{
+color:#ffcc80;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.btn-row{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:8px 12px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-size:13px;
+font-weight:bold;
+}
+
+.add{
+background:#6d4c41;
+color:white;
+}
+
+.order{
+background:#25D366;
+color:white;
+}
+
+.detail{
+background:#ffb74d;
+color:#2d1f18;
+}
 
 /* CART */
 .cart-box{
 margin-top:30px;
 background:rgba(255,255,255,0.08);
-padding:15px;
-border-radius:15px;
+padding:18px;
+border-radius:16px;
+}
+
+.cart-box h2{
+margin-bottom:12px;
 }
 
 .cart-item{
 display:flex;
 justify-content:space-between;
-margin:5px 0;
+align-items:center;
+gap:10px;
+padding:8px 0;
+border-bottom:1px dashed rgba(255,255,255,0.15);
 }
 
-.total{margin-top:10px;font-weight:bold;}
+.cart-item:last-child{
+border-bottom:none;
+}
+
+.cart-left{
+display:flex;
+flex-direction:column;
+gap:4px;
+}
+
+.cart-name{
+font-weight:bold;
+}
+
+.cart-meta{
+font-size:13px;
+color:#ffcc80;
+}
+
+.qty-controls{
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+.qty-controls button{
+padding:4px 10px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.total{
+margin-top:14px;
+font-weight:bold;
+font-size:18px;
+}
 
 input,textarea{
 width:100%;
 padding:10px;
-margin-top:5px;
+margin-top:8px;
 border-radius:10px;
 border:none;
+background:#f5f5f5;
+color:#222;
 }
 
 .checkout{
-margin-top:10px;
+margin-top:12px;
 background:#25D366;
 color:white;
-padding:10px;
+padding:12px;
 border:none;
 width:100%;
-border-radius:10px;
+border-radius:12px;
 cursor:pointer;
+font-weight:bold;
+font-size:15px;
 }
 
 /* FLOAT */
 .wa,.ig{
 position:fixed;
 right:20px;
-width:60px;height:60px;
+width:60px;
+height:60px;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+z-index:999;
 }
+
 .wa{bottom:20px;background:#25D366;}
 .ig{bottom:90px;background:#E1306C;}
 
-.wa img,.ig img{width:30px;}
+.wa img,.ig img{
+width:30px;
+height:30px;
+object-fit:contain;
+}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.75);
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:1000;
+}
+
+.modal-content{
+background:#2d1f18;
+padding:22px;
+border-radius:16px;
+max-width:420px;
+width:100%;
+position:relative;
+text-align:center;
+}
+
+.modal-content h2{
+color:#ffb74d;
+margin-bottom:10px;
+}
+
+.modal-content p{
+color:#eee;
+line-height:1.6;
+}
+
+.close{
+position:absolute;
+top:10px;
+right:15px;
+font-size:28px;
+cursor:pointer;
+}
+
+@media(max-width:900px){
+.bmc{
+grid-template-columns:repeat(2,1fr);
+}
+.wide{
+grid-column:span 1;
+}
+}
+
+@media(max-width:600px){
+.bmc{
+grid-template-columns:1fr;
+}
+}
 </style>
 </head>
 
@@ -116,118 +323,247 @@ justify-content:center;
 
 <div class="container">
 
-<div class="header">
-<img src="logo.jpg">
-<h1>☕ Flamboyan Coffee</h1>
-<p>Tempat ngopi nyaman & estetik</p>
+  <div class="header">
+    <img src="logo.jpg" alt="Logo Flamboyan Coffee">
+    <h1>☕ Flamboyan Coffee</h1>
+    <p>Tempat ngopi nyaman dengan suasana estetik dan pilihan menu favorit.</p>
+    <p class="ig-link">📷
+      <a href=https://www.instagram.com/flamboyan.coffe_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">@flmboyan.coffe_</a>
+    </p>
+  </div>
 
-<p class="ig-link">
-📷 <a href="https://instagram.com/flmboyan.coffe_" target="_blank">
-@flmboyan.coffe_
+  <h2 class="section-title" style="text-align:center;">📊 Business Model Canvas</h2>
+
+  <div class="bmc">
+    <div class="bmc-box" onclick="showModal('Key Partners','Flamboyan Coffee bekerja sama dengan supplier kopi, pemasok bahan makanan, layanan pesan antar, dan promosi lewat media sosial.')">
+      <h3>Key Partners</h3>
+      <p>Supplier & promosi</p>
+    </div>
+    <div class="bmc-box" onclick="showModal('Key Activities','Aktivitas utama meliputi memasak, menyeduh kopi, melayani pelanggan, dan promosi online.')">
+      <h3>Key Activities</h3>
+      <p>Masak & pelayanan</p>
+    </div>
+    <div class="bmc-box wide" onclick="showModal('Value Proposition','Flamboyan Coffee menawarkan tempat nyaman, harga terjangkau, menu lengkap, dan free WiFi.')">
+      <h3>Value Proposition</h3>
+      <p>Nyaman, lengkap, terjangkau</p>
+    </div>
+    <div class="bmc-box" onclick="showModal('Customer Relationship','Hubungan dibangun lewat pelayanan ramah, respon cepat via WhatsApp, dan update menu di Instagram.')">
+      <h3>Customer Relationship</h3>
+      <p>Pelayanan ramah</p>
+    </div>
+    <div class="bmc-box" onclick="showModal('Customer Segments','Target pelanggan adalah mahasiswa, pekerja, anak muda, dan masyarakat umum.')">
+      <h3>Customer Segments</h3>
+      <p>Mahasiswa & pekerja</p>
+    </div>
+    <div class="bmc-box" onclick="showModal('Key Resources','Sumber daya utama: tempat usaha, alat masak, alat seduh, bahan baku, dan tenaga kerja.')">
+      <h3>Key Resources</h3>
+      <p>Tempat & alat</p>
+    </div>
+    <div class="bmc-box" onclick="showModal('Channels','Penjualan lewat toko langsung, WhatsApp, Instagram, dan Google Maps.')">
+      <h3>Channels</h3>
+      <p>WA, IG, lokasi</p>
+    </div>
+    <div class="bmc-box" onclick="showModal('Cost Structure','Biaya utama meliputi bahan baku, listrik, air, WiFi, dan gaji.')">
+      <h3>Cost Structure</h3>
+      <p>Bahan & operasional</p>
+    </div>
+    <div class="bmc-box wide" onclick="showModal('Revenue Streams','Pendapatan berasal dari penjualan makanan, minuman, dan pesanan pelanggan.')">
+      <h3>Revenue Streams</h3>
+      <p>Jual makanan & minuman</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">🍽️ Menu Lengkap Flamboyan Coffee</h2>
+
+  <div class="menu" id="menuContainer"></div>
+
+  <div class="cart-box">
+    <h2>🛒 Keranjang (<span id="count">0</span>)</h2>
+    <div id="cart"></div>
+    <div class="total" id="total">Total: Rp0</div>
+
+    <input id="name" placeholder="Nama pembeli">
+    <textarea id="note" placeholder="Catatan pesanan"></textarea>
+
+    <button class="checkout" onclick="checkout()">Checkout via WhatsApp</button>
+  </div>
+
+</div>
+
+<a href="https://instagram.com/flmboyan.coffe_" target="_blank" class="ig">
+  <img src="instagram.png" alt="Instagram">
 </a>
-</p>
-</div>
 
-<h2 style="text-align:center;">📊 Business Model Canvas</h2>
-
-<div class="bmc">
-<div class="bmc-box" onclick="bmc('Key Partners','Supplier, ojek online, IG')">Key Partners</div>
-<div class="bmc-box" onclick="bmc('Key Activities','Masak, seduh kopi')">Key Activities</div>
-<div class="bmc-box wide" onclick="bmc('Value','Tempat nyaman + WiFi')">Value</div>
-<div class="bmc-box" onclick="bmc('Customer','Mahasiswa, pekerja')">Customer</div>
-<div class="bmc-box" onclick="bmc('Relationship','Pelayanan ramah')">Relationship</div>
-<div class="bmc-box" onclick="bmc('Resources','Tempat, alat')">Resources</div>
-<div class="bmc-box" onclick="bmc('Channels','WA, IG')">Channels</div>
-<div class="bmc-box" onclick="bmc('Cost','Bahan, listrik')">Cost</div>
-<div class="bmc-box wide" onclick="bmc('Revenue','Jual makanan minuman')">Revenue</div>
-</div>
-
-<h2 style="margin:20px 0;">🍽️ Menu</h2>
-
-<div class="menu">
-
-<div class="card">
-<h3>Nasi Goreng</h3>
-<div class="price">Rp10.000</div>
-<button class="btn add" onclick="add('Nasi Goreng',10000)">+ Keranjang</button>
-<button class="btn order" onclick="order('Nasi Goreng',10000)">Pesan</button>
-</div>
-
-<div class="card">
-<h3>Ayam Bakar</h3>
-<div class="price">Rp15.000</div>
-<button class="btn add" onclick="add('Ayam Bakar',15000)">+ Keranjang</button>
-<button class="btn order" onclick="order('Ayam Bakar',15000)">Pesan</button>
-</div>
-
-<div class="card">
-<h3>Kopi</h3>
-<div class="price">Rp5.000</div>
-<button class="btn add" onclick="add('Kopi',5000)">+ Keranjang</button>
-<button class="btn order" onclick="order('Kopi',5000)">Pesan</button>
-</div>
-
-</div>
-
-<div class="cart-box">
-<h2>🛒 Keranjang (<span id="count">0</span>)</h2>
-<div id="cart"></div>
-
-<div class="total" id="total">Total: Rp0</div>
-
-<input id="name" placeholder="Nama">
-<textarea id="note" placeholder="Catatan"></textarea>
-
-<button class="checkout" onclick="checkout()">Checkout WA</button>
-</div>
-
-</div>
-
-<a href=https://www.instagram.com/flamboyan.coffe_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==target="_blank" class="ig">
-<img src="instagram.png">
+<a href="https://wa.me/6285366759351" target="_blank" class="wa">
+  <img src="whatsapp.png" alt="WhatsApp">
 </a>
 
-<a href="https://wa.me/6281234567890" target="_blank" class="wa">
-<img src="whatsapp.png">
-</a>
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+  </div>
+</div>
 
 <script>
-let cart=[];
+const whatsappNumber = "6285366759351";
 
-function bmc(t,d){alert(t+"\\n\\n"+d);}
+const menuItems = [
+  { name: "Aneka Bakaran", price: 3000, displayPrice: "Rp1.000-5.000", desc: "Pilihan aneka bakaran untuk camilan atau teman nongkrong." },
+  { name: "Ayam Bakar", price: 15000, displayPrice: "Rp15.000", desc: "Ayam bakar gurih dengan cita rasa khas." },
+  { name: "Ayam Goreng", price: 22000, displayPrice: "Rp22.000", desc: "Ayam goreng renyah dan nikmat." },
+  { name: "Ayam Kampung", price: 13000, displayPrice: "Rp13.000", desc: "Menu ayam kampung dengan rasa rumahan." },
+  { name: "Pecel Lele", price: 13000, displayPrice: "Rp13.000", desc: "Lele goreng dengan sambal yang mantap." },
+  { name: "Nasi Goreng", price: 10000, displayPrice: "Rp10.000", desc: "Nasi goreng sederhana, enak, dan mengenyangkan." },
+  { name: "Mie Goreng + Telur", price: 10000, displayPrice: "Rp10.000", desc: "Mie goreng hangat dengan tambahan telur." },
+  { name: "Mie Goreng + Telur + Bakso", price: 12000, displayPrice: "Rp12.000", desc: "Mie goreng lengkap dengan telur dan bakso." },
+  { name: "Mie Rebus + Telur", price: 10000, displayPrice: "Rp10.000", desc: "Mie rebus hangat dengan telur." },
+  { name: "Mie Rebus + Telur + Bakso", price: 12000, displayPrice: "Rp12.000", desc: "Mie rebus lengkap dengan telur dan bakso." },
+  { name: "Pop Mie", price: 8000, displayPrice: "Rp8.000", desc: "Pilihan praktis dan cepat untuk camilan hangat." },
 
-function add(name,price){
-let item=cart.find(i=>i.name==name);
-if(item)item.qty++;
-else cart.push({name,price,qty:1});
-render();
+  { name: "Josu", price: 5000, displayPrice: "Rp5.000", desc: "Minuman segar untuk menemani santai." },
+  { name: "Milk Tea", price: 5000, displayPrice: "Rp5.000", desc: "Milk tea manis dan lembut." },
+  { name: "Aneka Es Coffee", price: 5000, displayPrice: "Rp5.000", desc: "Pilihan es coffee segar khas Flamboyan Coffee." },
+  { name: "Es Teh Jumbo", price: 3000, displayPrice: "Rp3.000", desc: "Es teh ukuran jumbo yang menyegarkan." },
+  { name: "Es Tawar", price: 2000, displayPrice: "Rp2.000", desc: "Es tawar segar." },
+  { name: "Kopi", price: 5000, displayPrice: "Rp5.000", desc: "Kopi hangat untuk teman ngobrol." },
+  { name: "Susu", price: 5000, displayPrice: "Rp5.000", desc: "Susu hangat atau dingin yang nikmat." }
+];
+
+let cart = [];
+
+function renderMenu() {
+  const container = document.getElementById("menuContainer");
+  container.innerHTML = "";
+
+  menuItems.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <h3>${item.name}</h3>
+      <p>${item.desc}</p>
+      <div class="price">${item.displayPrice}</div>
+      <div class="btn-row">
+        <button class="btn detail" onclick="showModal('${escapeQuotes(item.name)}','${escapeQuotes(item.desc)}')">Detail</button>
+        <button class="btn add" onclick="add('${escapeQuotes(item.name)}', ${item.price}, '${escapeQuotes(item.displayPrice)}')">+ Keranjang</button>
+        <button class="btn order" onclick="order('${escapeQuotes(item.name)}','${escapeQuotes(item.displayPrice)}')">Pesan</button>
+      </div>
+    `;
+    container.appendChild(div);
+  });
 }
 
-function render(){
-let html="",total=0,count=0;
-cart.forEach((i,index)=>{
-total+=i.price*i.qty;
-count+=i.qty;
-html+=`${i.name} x${i.qty}<br>`;
-});
-document.getElementById("cart").innerHTML=html;
-document.getElementById("total").innerText="Total: Rp"+total;
-document.getElementById("count").innerText=count;
+function escapeQuotes(text) {
+  return String(text).replace(/'/g, "\\'");
 }
 
-function order(name,price){
-window.open("https://wa.me/6285366759351?text="+encodeURIComponent("Pesan "+name));
+function showModal(title, desc) {
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalDesc").innerText = desc;
+  document.getElementById("modal").style.display = "flex";
 }
 
-function checkout(){
-let name=document.getElementById("name").value;
-if(!name)return alert("Isi nama!");
-
-let msg="Halo saya "+name+" pesan:\\n";
-cart.forEach(i=>{msg+=i.name+" x"+i.qty+"\\n";});
-
-window.open("https://wa.me/6285366759351?text="+encodeURIComponent(msg));
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
 }
+
+function add(name, price, displayPrice) {
+  let item = cart.find(i => i.name === name);
+  if (item) {
+    item.qty++;
+  } else {
+    cart.push({ name, price, displayPrice, qty: 1 });
+  }
+  renderCart();
+}
+
+function plus(index) {
+  cart[index].qty++;
+  renderCart();
+}
+
+function minus(index) {
+  cart[index].qty--;
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
+  }
+  renderCart();
+}
+
+function renderCart() {
+  let html = "";
+  let total = 0;
+  let count = 0;
+
+  cart.forEach((item, index) => {
+    total += item.price * item.qty;
+    count += item.qty;
+
+    html += `
+      <div class="cart-item">
+        <div class="cart-left">
+          <div class="cart-name">${item.name}</div>
+          <div class="cart-meta">${item.displayPrice} x ${item.qty}</div>
+        </div>
+        <div class="qty-controls">
+          <button onclick="minus(${index})">-</button>
+          <button onclick="plus(${index})">+</button>
+        </div>
+      </div>
+    `;
+  });
+
+  document.getElementById("cart").innerHTML = html || "<p style='color:#ddd'>Keranjang masih kosong.</p>";
+  document.getElementById("total").innerText = "Total: Rp" + total.toLocaleString("id-ID");
+  document.getElementById("count").innerText = count;
+}
+
+function order(name, displayPrice) {
+  const msg = `Halo Flamboyan Coffee, saya ingin pesan:\n- ${name}\nHarga: ${displayPrice}`;
+  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, "_blank");
+}
+
+function checkout() {
+  const name = document.getElementById("name").value.trim();
+  const note = document.getElementById("note").value.trim();
+
+  if (!name) {
+    alert("Isi nama pembeli dulu ya.");
+    return;
+  }
+
+  if (cart.length === 0) {
+    alert("Keranjang masih kosong.");
+    return;
+  }
+
+  let total = 0;
+  let msg = `Halo Flamboyan Coffee, saya ingin pesan.\n\nNama: ${name}\n\nPesanan:\n`;
+
+  cart.forEach(item => {
+    total += item.price * item.qty;
+    msg += `- ${item.name} (${item.displayPrice}) x ${item.qty}\n`;
+  });
+
+  msg += `\nTotal: Rp${total.toLocaleString("id-ID")}`;
+
+  if (note) {
+    msg += `\n\nCatatan: ${note}`;
+  }
+
+  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, "_blank");
+}
+
+window.onclick = function(e) {
+  const modal = document.getElementById("modal");
+  if (e.target === modal) {
+    closeModal();
+  }
+};
+
+renderMenu();
+renderCart();
 </script>
 
 </body>
