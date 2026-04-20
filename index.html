@@ -38,12 +38,9 @@ cursor:pointer;
 transition:0.3s;
 }
 
-.box:hover{
-transform:translateY(-5px);
-}
+.box:hover{transform:translateY(-5px);}
 
 .box h3{color:#ff6b00;margin-bottom:8px;}
-
 .box ul{padding-left:20px;}
 
 .wide{grid-column:span 2;}
@@ -97,7 +94,8 @@ cursor:pointer;
 /* FLOAT IG */
 .ig-float{
 position:fixed;
-bottom:20px;right:20px;
+bottom:90px;
+right:20px;
 width:60px;height:60px;
 background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
 border-radius:50%;
@@ -115,19 +113,45 @@ filter:invert(1);
 }
 
 .ig-float:hover{
+transform:scale(1.15) rotate(10deg);
+}
+
+/* FLOAT WA */
+.wa-float{
+position:fixed;
+bottom:20px;
+right:20px;
+width:60px;height:60px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+z-index:999;
+transition:0.3s;
+}
+
+.wa-float img{
+width:30px;
+filter:invert(1);
+}
+
+.wa-float:hover{
 transform:scale(1.15);
+box-shadow:0 12px 25px rgba(0,0,0,0.4);
 }
 </style>
 </head>
 
 <body>
 
-<img src="background flamboyan.jpg" class="background">
+<img src="Background.jpeg" class="background">
 <div class="overlay"></div>
 
 <div class="container">
 <div class="header">
-<img src="logo.jpg">
+<img src="logo.png">
 <h1>☕ Flamboyan Coffee</h1>
 </div>
 
@@ -191,9 +215,14 @@ transform:scale(1.15);
 </div>
 </div>
 
-<!-- FLOAT IG -->
-<a href="https://www.instagram.com/flamboyan.coffe_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="ig-float">
+<!-- INSTAGRAM -->
+<a href="https://instagram.com/flmboyan.coffe_" target="_blank" class="ig-float">
 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+</a>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/6285366759351" target="_blank" class="wa-float">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 </a>
 
 <script>
