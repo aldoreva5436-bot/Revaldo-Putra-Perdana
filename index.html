@@ -16,40 +16,49 @@ color:#fff;
 .container{padding:20px;max-width:1200px;margin:auto;}
 
 .header{text-align:center;margin-bottom:30px;}
-.header img{width:80px;}
+.header img{width:80px;border-radius:50%;}
 .header h1{margin-top:10px;text-shadow:0 0 10px orange;}
 .header p{color:#ddd;}
+
+/* IG LINK */
+.ig-link a{color:#ffb74d;text-decoration:none;}
+
+/* BMC */
+.bmc{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:10px;
+margin:20px 0;
+}
+.bmc-box{
+background:rgba(255,255,255,0.08);
+padding:10px;
+border-radius:10px;
+cursor:pointer;
+text-align:center;
+}
+.bmc-box:hover{background:rgba(255,255,255,0.2);}
+.wide{grid-column:span 2;}
 
 /* MENU */
 .menu{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
 }
 
 .card{
 background:rgba(255,255,255,0.08);
 padding:15px;
 border-radius:15px;
-backdrop-filter:blur(10px);
-transition:.3s;
 }
-
-.card:hover{transform:translateY(-5px);}
 
 .card h3{color:#ffb74d;}
-.price{color:#ffcc80;margin:5px 0;}
+.price{color:#ffcc80;}
 
-.btn{
-padding:6px 10px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-margin-top:5px;
-}
-
-.add{background:#6d4c41;color:#fff;}
-.order{background:#25D366;color:#fff;}
+.btn{padding:6px 10px;border:none;border-radius:10px;margin-top:5px;cursor:pointer;}
+.add{background:#6d4c41;color:white;}
+.order{background:#25D366;color:white;}
 
 /* CART */
 .cart-box{
@@ -62,21 +71,11 @@ border-radius:15px;
 .cart-item{
 display:flex;
 justify-content:space-between;
-margin:8px 0;
-}
-
-.qty{
-display:flex;
-gap:5px;
-}
-
-.qty button{
-padding:3px 8px;
+margin:5px 0;
 }
 
 .total{margin-top:10px;font-weight:bold;}
 
-/* INPUT */
 input,textarea{
 width:100%;
 padding:10px;
@@ -97,30 +96,19 @@ cursor:pointer;
 }
 
 /* FLOAT */
-.wa{
+.wa,.ig{
 position:fixed;
-bottom:20px;
 right:20px;
-background:#25D366;
 width:60px;height:60px;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
 }
-.wa img{width:30px;}
+.wa{bottom:20px;background:#25D366;}
+.ig{bottom:90px;background:#E1306C;}
 
-.badge{
-position:absolute;
-top:10px;
-right:10px;
-background:red;
-color:white;
-padding:3px 7px;
-border-radius:50%;
-font-size:12px;
-}
-
+.wa img,.ig img{width:30px;}
 </style>
 </head>
 
@@ -131,12 +119,33 @@ font-size:12px;
 <div class="header">
 <img src="logo.jpg">
 <h1>☕ Flamboyan Coffee</h1>
-<p>Ngopi nyaman, harga bersahabat</p>
+<p>Tempat ngopi nyaman & estetik</p>
+
+<p class="ig-link">
+📷 <a href="https://instagram.com/flmboyan.coffe_" target="_blank">
+@flmboyan.coffe_
+</a>
+</p>
 </div>
+
+<h2 style="text-align:center;">📊 Business Model Canvas</h2>
+
+<div class="bmc">
+<div class="bmc-box" onclick="bmc('Key Partners','Supplier, ojek online, IG')">Key Partners</div>
+<div class="bmc-box" onclick="bmc('Key Activities','Masak, seduh kopi')">Key Activities</div>
+<div class="bmc-box wide" onclick="bmc('Value','Tempat nyaman + WiFi')">Value</div>
+<div class="bmc-box" onclick="bmc('Customer','Mahasiswa, pekerja')">Customer</div>
+<div class="bmc-box" onclick="bmc('Relationship','Pelayanan ramah')">Relationship</div>
+<div class="bmc-box" onclick="bmc('Resources','Tempat, alat')">Resources</div>
+<div class="bmc-box" onclick="bmc('Channels','WA, IG')">Channels</div>
+<div class="bmc-box" onclick="bmc('Cost','Bahan, listrik')">Cost</div>
+<div class="bmc-box wide" onclick="bmc('Revenue','Jual makanan minuman')">Revenue</div>
+</div>
+
+<h2 style="margin:20px 0;">🍽️ Menu</h2>
 
 <div class="menu">
 
-<!-- ITEM -->
 <div class="card">
 <h3>Nasi Goreng</h3>
 <div class="price">Rp10.000</div>
@@ -160,86 +169,62 @@ font-size:12px;
 
 </div>
 
-<!-- CART -->
 <div class="cart-box">
-<h2>🛒 Keranjang <span id="count">0</span></h2>
-
+<h2>🛒 Keranjang (<span id="count">0</span>)</h2>
 <div id="cart"></div>
 
 <div class="total" id="total">Total: Rp0</div>
 
-<label>Nama</label>
-<input id="name">
+<input id="name" placeholder="Nama">
+<textarea id="note" placeholder="Catatan"></textarea>
 
-<label>Catatan</label>
-<textarea id="note"></textarea>
-
-<button class="checkout" onclick="checkout()">Checkout WhatsApp</button>
-
+<button class="checkout" onclick="checkout()">Checkout WA</button>
 </div>
 
 </div>
 
-<a href="https://wa.me/6285366759351" class="wa">
+<a href=https://www.instagram.com/flamboyan.coffe_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==target="_blank" class="ig">
+<img src="instagram.png">
+</a>
+
+<a href="https://wa.me/6281234567890" target="_blank" class="wa">
 <img src="whatsapp.png">
 </a>
 
 <script>
 let cart=[];
 
+function bmc(t,d){alert(t+"\\n\\n"+d);}
+
 function add(name,price){
 let item=cart.find(i=>i.name==name);
-if(item){item.qty++;}
-else{cart.push({name,price,qty:1});}
+if(item)item.qty++;
+else cart.push({name,price,qty:1});
 render();
-alert("Ditambahkan ke keranjang!");
 }
 
 function render(){
-let html="";
-let total=0;
-let count=0;
-
-cart.forEach((item,i)=>{
-total+=item.price*item.qty;
-count+=item.qty;
-
-html+=`
-<div class="cart-item">
-${item.name} (${item.qty})
-<div class="qty">
-<button onclick="minus(${i})">-</button>
-<button onclick="plus(${i})">+</button>
-</div>
-</div>`;
+let html="",total=0,count=0;
+cart.forEach((i,index)=>{
+total+=i.price*i.qty;
+count+=i.qty;
+html+=`${i.name} x${i.qty}<br>`;
 });
-
 document.getElementById("cart").innerHTML=html;
 document.getElementById("total").innerText="Total: Rp"+total;
 document.getElementById("count").innerText=count;
 }
 
-function plus(i){cart[i].qty++;render();}
-function minus(i){cart[i].qty--;if(cart[i].qty<=0)cart.splice(i,1);render();}
-
 function order(name,price){
-let text=encodeURIComponent("Pesan: "+name+" Rp"+price);
-window.open("https://wa.me/6281234567890?text="+text);
+window.open("https://wa.me/6285366759351?text="+encodeURIComponent("Pesan "+name));
 }
 
 function checkout(){
 let name=document.getElementById("name").value;
-let note=document.getElementById("note").value;
+if(!name)return alert("Isi nama!");
 
-if(!name)return alert("Isi nama dulu!");
-
-let msg="Halo, saya "+name+" ingin pesan:\n";
-
-cart.forEach(i=>{
-msg+=`- ${i.name} x${i.qty}\n`;
-});
-
-if(note) msg+="\nCatatan: "+note;
+let msg="Halo saya "+name+" pesan:\\n";
+cart.forEach(i=>{msg+=i.name+" x"+i.qty+"\\n";});
 
 window.open("https://wa.me/6285366759351?text="+encodeURIComponent(msg));
 }
