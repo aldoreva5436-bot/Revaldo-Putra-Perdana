@@ -14,25 +14,17 @@ background:linear-gradient(135deg,#1c1c1c,#3e2723);
 color:#eee;
 }
 
-/* HEADER */
 .container{padding:20px;}
 .header{text-align:center;margin-bottom:30px;}
 
-.header img{
-width:80px;
-margin-bottom:10px;
-}
+.header img{width:80px;margin-bottom:10px;}
 
 .header h1{
 color:#fff;
-font-size:2rem;
-letter-spacing:1px;
 text-shadow:0 0 15px rgba(255,140,0,0.5);
 }
 
-.header p{
-color:#ccc;
-}
+.header p{color:#ccc;}
 
 /* BMC */
 .grid{
@@ -43,12 +35,10 @@ gap:15px;
 
 .box{
 background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
 padding:15px;
 border-radius:15px;
 cursor:pointer;
 transition:0.3s;
-border:1px solid rgba(255,255,255,0.1);
 }
 
 .box:hover{
@@ -73,7 +63,6 @@ margin-top:30px;
 background:rgba(255,255,255,0.08);
 padding:18px;
 border-radius:15px;
-backdrop-filter:blur(10px);
 }
 
 .menu-category h3{
@@ -86,76 +75,24 @@ display:flex;
 justify-content:space-between;
 padding:6px 0;
 border-bottom:1px dashed rgba(255,255,255,0.2);
-font-size:0.9rem;
 }
 
 .menu-category li:last-child{border-bottom:none;}
 .menu-category b{color:#ffcc80;}
 
 /* MAP */
-.map{
-margin-top:40px;
-text-align:center;
+.map{text-align:center;margin-top:40px;}
+
+.map a{
+color:#ffb74d;
+text-decoration:none;
 }
 
-.map iframe{
-width:100%;
-height:300px;
-border-radius:15px;
-border:none;
-}
-
-/* MODAL */
-.modal{
-position:fixed;
-inset:0;
-display:flex;
-justify-content:center;
-align-items:center;
-background:rgba(0,0,0,0);
-opacity:0;
-visibility:hidden;
-transition:0.3s;
-}
-
-.modal.show{
-opacity:1;
-visibility:visible;
-background:rgba(0,0,0,0.7);
-}
-
-.modal-content{
-background:#222;
-padding:20px;
-border-radius:20px;
-width:350px;
-text-align:center;
-transform:scale(0.8);
-opacity:0;
-transition:0.3s;
-color:white;
-}
-
-.modal.show .modal-content{
-transform:scale(1);
-opacity:1;
-}
-
-.close{
-position:absolute;
-right:20px;
-top:10px;
-font-size:30px;
-cursor:pointer;
-color:white;
-}
-
-/* FLOAT BUTTON */
+/* FLOAT */
 .ig-float,.wa-float{
 position:fixed;
 right:20px;
-width:60px;
-height:60px;
+width:60px;height:60px;
 border-radius:50%;
 display:flex;
 align-items:center;
@@ -169,7 +106,6 @@ z-index:999;
 .ig-float img{width:30px;filter:invert(1);}
 .wa-float img{width:35px;}
 
-/* RESPONSIVE */
 @media(max-width:768px){
 .grid{grid-template-columns:1fr;}
 .menu-list{grid-template-columns:1fr;}
@@ -187,56 +123,6 @@ z-index:999;
 <p>Tempat ngopi nyaman dengan suasana estetik dan pilihan menu favorit.</p>
 </div>
 
-<!-- BMC -->
-<div class="grid">
-
-<div class="box" onclick="showDetail('Key Partners','Kerja sama supplier kopi, ojek online, influencer.')">
-<h3>Key Partners</h3>
-<ul><li>Supplier kopi</li><li>Ojek online</li><li>Influencer</li></ul>
-</div>
-
-<div class="box" onclick="showDetail('Key Activities','Menyeduh kopi, pelayanan, promosi.')">
-<h3>Key Activities</h3>
-<ul><li>Menyeduh kopi</li><li>Pelayanan</li></ul>
-</div>
-
-<div class="box wide" onclick="showDetail('Value Proposition','Flamboyan Coffee adalah tempat ngopi nyaman dengan suasana estetik dan pilihan menu favorit.')">
-<h3>Value Proposition</h3>
-<ul><li>Kopi berkualitas</li><li>Tempat nyaman</li></ul>
-</div>
-
-<div class="box" onclick="showDetail('Customer Relationship','Pelayanan ramah & loyalitas pelanggan.')">
-<h3>Customer Relationship</h3>
-<ul><li>Pelayanan</li><li>Promo</li></ul>
-</div>
-
-<div class="box" onclick="showDetail('Customer Segments','Mahasiswa, pekerja, dan pecinta kopi.')">
-<h3>Customer Segments</h3>
-<ul><li>Mahasiswa</li><li>Pekerja</li></ul>
-</div>
-
-<div class="box" onclick="showDetail('Key Resources','Barista & mesin kopi.')">
-<h3>Key Resources</h3>
-<ul><li>Barista</li><li>Mesin kopi</li></ul>
-</div>
-
-<div class="box" onclick="showDetail('Channels','Instagram & GoFood.')">
-<h3>Channels</h3>
-<ul><li>Instagram</li><li>GoFood</li></ul>
-</div>
-
-<div class="box" onclick="showDetail('Cost Structure','Bahan baku dan gaji karyawan.')">
-<h3>Cost Structure</h3>
-<ul><li>Bahan baku</li><li>Gaji</li></ul>
-</div>
-
-<div class="box wide" onclick="showDetail('Revenue Streams','Pendapatan dari penjualan makanan dan minuman.')">
-<h3>Revenue Streams</h3>
-<ul><li>Penjualan kopi</li></ul>
-</div>
-
-</div>
-
 <!-- MENU -->
 <h2 style="margin-top:30px;color:#fff;">Menu</h2>
 
@@ -245,22 +131,30 @@ z-index:999;
 <div class="menu-category">
 <h3>🍽️ Makanan</h3>
 <ul>
-<li><span>Aneka Bakaran</span><b>Rp1k-5k</b></li>
-<li><span>Ayam Bakar</span><b>Rp15k</b></li>
-<li><span>Ayam Goreng</span><b>Rp22k</b></li>
-<li><span>Ayam Kampung</span><b>Rp13k</b></li>
-<li><span>Pecel Lele</span><b>Rp13k</b></li>
-<li><span>Nasi Goreng</span><b>Rp10k</b></li>
+<li><span>Aneka Bakaran</span><b>Rp1.000-5.000</b></li>
+<li><span>Ayam Bakar</span><b>Rp15.000</b></li>
+<li><span>Ayam Goreng</span><b>Rp22.000</b></li>
+<li><span>Ayam Kampung</span><b>Rp13.000</b></li>
+<li><span>Pecel Lele</span><b>Rp13.000</b></li>
+<li><span>Nasi Goreng</span><b>Rp10.000</b></li>
+<li><span>Mie Goreng + Telur</span><b>Rp10.000</b></li>
+<li><span>Mie Goreng + Telur + Bakso</span><b>Rp12.000</b></li>
+<li><span>Mie Rebus + Telur</span><b>Rp10.000</b></li>
+<li><span>Mie Rebus + Telur + Bakso</span><b>Rp12.000</b></li>
+<li><span>Pop Mie</span><b>Rp8.000</b></li>
 </ul>
 </div>
 
 <div class="menu-category">
 <h3>🥤 Minuman</h3>
 <ul>
-<li><span>Kopi</span><b>Rp5k</b></li>
-<li><span>Milk Tea</span><b>Rp5k</b></li>
-<li><span>Es Teh</span><b>Rp3k</b></li>
-<li><span>Es Tawar</span><b>Rp2k</b></li>
+<li><span>Josu</span><b>Rp5.000</b></li>
+<li><span>Milk Tea</span><b>Rp5.000</b></li>
+<li><span>Aneka Es Coffee</span><b>Rp5.000</b></li>
+<li><span>Es Teh Jumbo</span><b>Rp3.000</b></li>
+<li><span>Es Tawar</span><b>Rp2.000</b></li>
+<li><span>Kopi</span><b>Rp5.000</b></li>
+<li><span>Susu</span><b>Rp5.000</b></li>
 </ul>
 </div>
 
@@ -275,21 +169,12 @@ z-index:999;
 
 <!-- MAP -->
 <div class="map">
-<h2 style="margin-bottom:10px;">📍 Lokasi Kami</h2>
-<a href="https://maps.app.goo.gl/ozfeKq7vhYprGurh9" target="_blank" style="color:#ffb74d;">
-Lihat di Google Maps
+<h2>📍 Lokasi Kami</h2>
+<a href="https://maps.app.goo.gl/ozfeKq7vhYprGurh9" target="_blank">
+Klik untuk buka Google Maps
 </a>
 </div>
 
-</div>
-
-<!-- MODAL -->
-<div id="modal" class="modal" onclick="closeModal()">
-<div class="modal-content">
-<span class="close" onclick="closeModal()">&times;</span>
-<h2 id="title"></h2>
-<p id="desc"></p>
-</div>
 </div>
 
 <!-- IG -->
@@ -301,17 +186,6 @@ Lihat di Google Maps
 <a href="https://wa.me/6281234567890" target="_blank" class="wa-float">
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 </a>
-
-<script>
-function showDetail(t,d){
-document.getElementById("title").innerText=t;
-document.getElementById("desc").innerText=d;
-document.getElementById("modal").classList.add("show");
-}
-function closeModal(){
-document.getElementById("modal").classList.remove("show");
-}
-</script>
 
 </body>
 </html>
