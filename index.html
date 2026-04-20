@@ -1,176 +1,273 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MoodFood BMC</title>
+
 <style>
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: url('./background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-/* Background */
-.background {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
+/* LOGO */
+.logo {
+    text-align: center;
+    margin-top: 15px;
 }
 
-/* Container */
-.container {
-  position: relative;
-  z-index: 2;
-  padding: 20px;
-  color: black;
+.logo img {
+    width: 6vw;
+    max-width: 90px;
+    min-width: 60px;
 }
 
-/* Title */
+/* JUDUL */
 h1 {
-  text-align: center;
-  color: white;
-  text-shadow: 2px 2px 5px black;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
 
-/* Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 15px;
+/* GRID */
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    padding: 20px;
 }
 
-/* Box */
+/* BOX */
 .box {
-  background: rgba(255,255,255,0.9);
-  padding: 10px;
-  border-radius: 10px;
-  min-height: 150px;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.box img {
-  width: 100%;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
+.box:hover {
+    transform: scale(1.05);
 }
 
-.box h3 {
-  margin: 5px 0;
-  color: #ff6600;
+.title {
+    font-weight: bold;
+    color: #ff6600;
+    margin-bottom: 10px;
 }
 
 ul {
-  padding-left: 15px;
-  margin: 5px 0;
+    padding-left: 18px;
 }
 
+li {
+    font-size: 13px;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    text-align: center;
+    color: white;
+    margin-top: 5%;
+}
+
+.modal img {
+    max-width: 80%;
+    max-height: 60vh;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 </style>
 </head>
 
 <body>
 
-<!-- Background -->
-<img class="background" src="https://images.unsplash.com/photo-1581090700227-4c4f50c45b2c" />
+<div class="logo">
+    <img src="./logo.png" alt="Logo">
+</div>
+
+<h1>🍱 Business Model Canvas - MoodFood</h1>
 
 <div class="container">
-  <h1>Business Model Canvas - MoodFood</h1>
 
-  <div class="grid">
-
-    <div class="box">
-      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
-      <h3>Key Partners</h3>
-      <ul>
-        <li>Supplier lokal</li>
-        <li>Ojek online</li>
-        <li>Influencer</li>
-        <li>Developer</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d">
-      <h3>Key Activities</h3>
-      <ul>
-        <li>Produksi makanan</li>
-        <li>Konten TikTok</li>
-        <li>Riset tren</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
-      <h3>Value Proposition</h3>
-      <ul>
-        <li>Makanan sesuai mood</li>
-        <li>Menu unik</li>
-        <li>Packaging aesthetic</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4">
-      <h3>Customer Relationship</h3>
-      <ul>
-        <li>Quiz mood</li>
-        <li>DM interaktif</li>
-        <li>Reward</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <img src="https://images.unsplash.com/photo-1529336953121-a0c9e5e9d4f7">
-      <h3>Customer Segments</h3>
-      <ul>
-        <li>Gen-Z</li>
-        <li>Mahasiswa</li>
-        <li>Anak kos</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488">
-      <h3>Key Resources</h3>
-      <ul>
-        <li>Dapur</li>
-        <li>Tim konten</li>
-        <li>Brand</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113">
-      <h3>Channels</h3>
-      <ul>
-        <li>TikTok</li>
-        <li>Instagram</li>
-        <li>GoFood</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3">
-      <h3>Cost Structure</h3>
-      <ul>
-        <li>Bahan baku</li>
-        <li>Gaji</li>
-        <li>Iklan</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b">
-      <h3>Revenue Streams</h3>
-      <ul>
-        <li>Penjualan</li>
-        <li>Subscription</li>
-        <li>Merchandise</li>
-      </ul>
-    </div>
-
-  </div>
+<div class="box" onclick="showImg('img1.jpg')">
+<div class="title">Key Partners</div>
+<ul>
+<li>Supplier lokal</li>
+<li>Ojek online</li>
+<li>Influencer</li>
+<li>Developer</li>
+</ul>
 </div>
+
+<div class="box" onclick="showImg('img2.jpg')">
+<div class="title">Key Activities</div>
+<ul>
+<li>Produksi makanan</li>
+<li>Konten TikTok</li>
+<li>Riset tren</li>
+</ul>
+</div>
+
+<div class="box" onclick="showImg('img3.jpg')">
+<div class="title">Value Proposition</div>
+<ul>
+<li>Makanan sesuai mood</li>
+<li>Menu unik</li>
+<li>Packaging aesthetic</li>
+</ul>
+</div>
+
+<div class="box" onclick="showImg('img4.jpg')">
+<div class="title">Customer Relationship</div>
+<ul>
+<li>Quiz mood</li>
+<li>DM interaktif</li>
+<li>Reward</li>
+</ul>
+</div>
+
+<div class="box" onclick="showImg('img5.jpg')">
+<div class="title">Customer Segments</div>
+<ul>
+<li>Gen-Z</li>
+<li>Mahasiswa</li>
+<li>Anak kos</li>
+</ul>
+</div>
+
+<div class="box" onclick="showImg('img6.jpg')">
+<div class="title">Key Resources</div>
+<ul>
+<li>Dapur</li>
+<li>Tim konten</li>
+<li>Brand</li>
+</ul>
+</div>
+
+<div class="box" onclick="showImg('img7.jpg')">
+<div class="title">Channels</div>
+<ul>
+<li>TikTok</li>
+<li>Instagram</li>
+<li>GoFood</li>
+</ul>
+</div>
+
+<div class="box" onclick="showImg('img8.jpg')">
+<div class="title">Cost Structure</div>
+<ul>
+<li>Bahan baku</li>
+<li>Gaji</li>
+<li>Iklan</li>
+</ul>
+</div>
+
+<div class="box" onclick="showImg('img9.jpg')">
+<div class="title">Revenue Streams</div>
+<ul>
+<li>Penjualan</li>
+<li>Subscription</li>
+<li>Merchandise</li>
+</ul>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="closeImg()">
+<span class="close">&times;</span>
+<div class="modal-content">
+    <h2 id="imgTitle"></h2>
+    <img id="modalImg">
+    <p id="imgDesc" style="max-width:600px; margin:auto;"></p>
+</div>
+</div>
+
+<script>
+const data = {
+    "img1.jpg": {
+        title: "Key Partners",
+        desc: "Kerjasama dengan supplier lokal, ojek online, dan influencer untuk mendukung distribusi dan promosi produk."
+    },
+    "img2.jpg": {
+        title: "Key Activities",
+        desc: "Produksi makanan, pembuatan konten digital, dan riset tren Gen-Z."
+    },
+    "img3.jpg": {
+        title: "Value Proposition",
+        desc: "Menyediakan makanan sesuai mood dengan konsep aesthetic dan pengalaman unik."
+    },
+    "img4.jpg": {
+        title: "Customer Relationship",
+        desc: "Interaksi melalui quiz, DM, dan reward untuk meningkatkan loyalitas pelanggan."
+    },
+    "img5.jpg": {
+        title: "Customer Segments",
+        desc: "Target utama Gen-Z, mahasiswa, dan anak kos yang suka tren kekinian."
+    },
+    "img6.jpg": {
+        title: "Key Resources",
+        desc: "Dapur kreatif, tim konten, dan brand identity sebagai aset utama."
+    },
+    "img7.jpg": {
+        title: "Channels",
+        desc: "Distribusi melalui TikTok, Instagram, dan layanan delivery online."
+    },
+    "img8.jpg": {
+        title: "Cost Structure",
+        desc: "Biaya bahan baku, gaji tim, iklan, dan operasional bisnis."
+    },
+    "img9.jpg": {
+        title: "Revenue Streams",
+        desc: "Pendapatan dari penjualan makanan, subscription, dan merchandise."
+    }
+};
+
+function showImg(src) {
+    document.getElementById("modal").style.display = "block";
+    document.getElementById("modalImg").src = src;
+    document.getElementById("imgTitle").innerText = data[src].title;
+    document.getElementById("imgDesc").innerText = data[src].desc;
+}
+
+function closeImg() {
+    document.getElementById("modal").style.display = "none";
+}
+</script>
 
 </body>
 </html>
+
