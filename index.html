@@ -6,110 +6,121 @@
 <title>Flamboyan Coffee</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 
 body{
-font-family:Arial;
-background:linear-gradient(135deg,#1c1c1c,#3e2723);
-color:#eee;
-}
-
-.container{padding:20px;}
-.header{text-align:center;margin-bottom:30px;}
-
-.header img{width:80px;margin-bottom:10px;}
-
-.header h1{
+background:linear-gradient(135deg,#1b1b1b,#2d1f18,#3e2723);
 color:#fff;
-text-shadow:0 0 15px rgba(255,140,0,0.5);
 }
 
-.header p{color:#ccc;}
+.container{padding:20px;max-width:1200px;margin:auto;}
 
-/* BMC */
-.grid{
+.header{text-align:center;margin-bottom:30px;}
+.header img{width:80px;}
+.header h1{margin-top:10px;text-shadow:0 0 10px orange;}
+.header p{color:#ddd;}
+
+/* MENU */
+.menu{
 display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:15px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
-.box{
+.card{
 background:rgba(255,255,255,0.08);
 padding:15px;
 border-radius:15px;
+backdrop-filter:blur(10px);
+transition:.3s;
+}
+
+.card:hover{transform:translateY(-5px);}
+
+.card h3{color:#ffb74d;}
+.price{color:#ffcc80;margin:5px 0;}
+
+.btn{
+padding:6px 10px;
+border:none;
+border-radius:10px;
 cursor:pointer;
-transition:0.3s;
+margin-top:5px;
 }
 
-.box:hover{
-transform:translateY(-6px);
-background:rgba(255,255,255,0.15);
-}
+.add{background:#6d4c41;color:#fff;}
+.order{background:#25D366;color:#fff;}
 
-.box h3{color:#ff9800;margin-bottom:8px;}
-.box ul{padding-left:20px;color:#ddd;}
-
-.wide{grid-column:span 2;}
-
-/* MENU */
-.menu-list{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
+/* CART */
+.cart-box{
 margin-top:30px;
-}
-
-.menu-category{
 background:rgba(255,255,255,0.08);
-padding:18px;
+padding:15px;
 border-radius:15px;
 }
 
-.menu-category h3{
-color:#ffb74d;
-margin-bottom:10px;
-}
-
-.menu-category li{
+.cart-item{
 display:flex;
 justify-content:space-between;
-padding:6px 0;
-border-bottom:1px dashed rgba(255,255,255,0.2);
+margin:8px 0;
 }
 
-.menu-category li:last-child{border-bottom:none;}
-.menu-category b{color:#ffcc80;}
+.qty{
+display:flex;
+gap:5px;
+}
 
-/* MAP */
-.map{text-align:center;margin-top:40px;}
+.qty button{
+padding:3px 8px;
+}
 
-.map a{
-color:#ffb74d;
-text-decoration:none;
+.total{margin-top:10px;font-weight:bold;}
+
+/* INPUT */
+input,textarea{
+width:100%;
+padding:10px;
+margin-top:5px;
+border-radius:10px;
+border:none;
+}
+
+.checkout{
+margin-top:10px;
+background:#25D366;
+color:white;
+padding:10px;
+border:none;
+width:100%;
+border-radius:10px;
+cursor:pointer;
 }
 
 /* FLOAT */
-.ig-float,.wa-float{
+.wa{
 position:fixed;
+bottom:20px;
 right:20px;
+background:#25D366;
 width:60px;height:60px;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-z-index:999;
+}
+.wa img{width:30px;}
+
+.badge{
+position:absolute;
+top:10px;
+right:10px;
+background:red;
+color:white;
+padding:3px 7px;
+border-radius:50%;
+font-size:12px;
 }
 
-.ig-float{bottom:90px;background:#e1306c;}
-.wa-float{bottom:20px;background:#25D366;}
-
-.ig-float img{width:30px;filter:invert(1);}
-.wa-float img{width:35px;}
-
-@media(max-width:768px){
-.grid{grid-template-columns:1fr;}
-.menu-list{grid-template-columns:1fr;}
-}
 </style>
 </head>
 
@@ -120,72 +131,119 @@ z-index:999;
 <div class="header">
 <img src="logo.jpg">
 <h1>☕ Flamboyan Coffee</h1>
-<p>Tempat ngopi nyaman dengan suasana estetik dan pilihan menu favorit.</p>
+<p>Ngopi nyaman, harga bersahabat</p>
 </div>
 
-<!-- MENU -->
-<h2 style="margin-top:30px;color:#fff;">Menu</h2>
+<div class="menu">
 
-<div class="menu-list">
-
-<div class="menu-category">
-<h3>🍽️ Makanan</h3>
-<ul>
-<li><span>Aneka Bakaran</span><b>Rp1.000-5.000</b></li>
-<li><span>Ayam Bakar</span><b>Rp15.000</b></li>
-<li><span>Ayam Goreng</span><b>Rp22.000</b></li>
-<li><span>Ayam Kampung</span><b>Rp13.000</b></li>
-<li><span>Pecel Lele</span><b>Rp13.000</b></li>
-<li><span>Nasi Goreng</span><b>Rp10.000</b></li>
-<li><span>Mie Goreng + Telur</span><b>Rp10.000</b></li>
-<li><span>Mie Goreng + Telur + Bakso</span><b>Rp12.000</b></li>
-<li><span>Mie Rebus + Telur</span><b>Rp10.000</b></li>
-<li><span>Mie Rebus + Telur + Bakso</span><b>Rp12.000</b></li>
-<li><span>Pop Mie</span><b>Rp8.000</b></li>
-</ul>
+<!-- ITEM -->
+<div class="card">
+<h3>Nasi Goreng</h3>
+<div class="price">Rp10.000</div>
+<button class="btn add" onclick="add('Nasi Goreng',10000)">+ Keranjang</button>
+<button class="btn order" onclick="order('Nasi Goreng',10000)">Pesan</button>
 </div>
 
-<div class="menu-category">
-<h3>🥤 Minuman</h3>
-<ul>
-<li><span>Josu</span><b>Rp5.000</b></li>
-<li><span>Milk Tea</span><b>Rp5.000</b></li>
-<li><span>Aneka Es Coffee</span><b>Rp5.000</b></li>
-<li><span>Es Teh Jumbo</span><b>Rp3.000</b></li>
-<li><span>Es Tawar</span><b>Rp2.000</b></li>
-<li><span>Kopi</span><b>Rp5.000</b></li>
-<li><span>Susu</span><b>Rp5.000</b></li>
-</ul>
+<div class="card">
+<h3>Ayam Bakar</h3>
+<div class="price">Rp15.000</div>
+<button class="btn add" onclick="add('Ayam Bakar',15000)">+ Keranjang</button>
+<button class="btn order" onclick="order('Ayam Bakar',15000)">Pesan</button>
 </div>
 
-<div class="menu-category">
-<h3>📶 Fasilitas</h3>
-<ul>
-<li><span>Free WiFi</span><b>Gratis</b></li>
-</ul>
+<div class="card">
+<h3>Kopi</h3>
+<div class="price">Rp5.000</div>
+<button class="btn add" onclick="add('Kopi',5000)">+ Keranjang</button>
+<button class="btn order" onclick="order('Kopi',5000)">Pesan</button>
 </div>
 
 </div>
 
-<!-- MAP -->
-<div class="map">
-<h2>📍 Lokasi Kami</h2>
-<a href="https://maps.app.goo.gl/ozfeKq7vhYprGurh9" target="_blank">
-Klik untuk buka Google Maps
-</a>
-</div>
+<!-- CART -->
+<div class="cart-box">
+<h2>🛒 Keranjang <span id="count">0</span></h2>
+
+<div id="cart"></div>
+
+<div class="total" id="total">Total: Rp0</div>
+
+<label>Nama</label>
+<input id="name">
+
+<label>Catatan</label>
+<textarea id="note"></textarea>
+
+<button class="checkout" onclick="checkout()">Checkout WhatsApp</button>
 
 </div>
 
-<!-- IG -->
-<a href="https://instagram.com/flmboyan.coffe_" target="_blank" class="ig-float">
-<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+</div>
+
+<a href="https://wa.me/6285366759351" class="wa">
+<img src="whatsapp.png">
 </a>
 
-<!-- WA -->
-<a href="https://wa.me/6281234567890" target="_blank" class="wa-float">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-</a>
+<script>
+let cart=[];
+
+function add(name,price){
+let item=cart.find(i=>i.name==name);
+if(item){item.qty++;}
+else{cart.push({name,price,qty:1});}
+render();
+alert("Ditambahkan ke keranjang!");
+}
+
+function render(){
+let html="";
+let total=0;
+let count=0;
+
+cart.forEach((item,i)=>{
+total+=item.price*item.qty;
+count+=item.qty;
+
+html+=`
+<div class="cart-item">
+${item.name} (${item.qty})
+<div class="qty">
+<button onclick="minus(${i})">-</button>
+<button onclick="plus(${i})">+</button>
+</div>
+</div>`;
+});
+
+document.getElementById("cart").innerHTML=html;
+document.getElementById("total").innerText="Total: Rp"+total;
+document.getElementById("count").innerText=count;
+}
+
+function plus(i){cart[i].qty++;render();}
+function minus(i){cart[i].qty--;if(cart[i].qty<=0)cart.splice(i,1);render();}
+
+function order(name,price){
+let text=encodeURIComponent("Pesan: "+name+" Rp"+price);
+window.open("https://wa.me/6281234567890?text="+text);
+}
+
+function checkout(){
+let name=document.getElementById("name").value;
+let note=document.getElementById("note").value;
+
+if(!name)return alert("Isi nama dulu!");
+
+let msg="Halo, saya "+name+" ingin pesan:\n";
+
+cart.forEach(i=>{
+msg+=`- ${i.name} x${i.qty}\n`;
+});
+
+if(note) msg+="\nCatatan: "+note;
+
+window.open("https://wa.me/6285366759351?text="+encodeURIComponent(msg));
+}
+</script>
 
 </body>
 </html>
