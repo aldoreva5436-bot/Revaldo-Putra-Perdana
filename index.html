@@ -7,22 +7,11 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Arial;}
-
-.background{
-position:fixed;inset:0;width:100%;height:100%;
-object-fit:cover;z-index:-2;
-}
-
-.overlay{
-position:fixed;inset:0;background:rgba(255,255,255,0.3);
-z-index:-1;
-}
+body{font-family:Arial;background:#3e2723;color:#222;}
 
 .container{padding:20px;}
 .header{text-align:center;margin-bottom:20px;}
 
-.header img{width:80px;margin-bottom:10px;}
 .header h1{color:white;text-shadow:2px 2px 10px black;}
 
 .grid{
@@ -32,7 +21,7 @@ gap:15px;
 }
 
 .box{
-background:rgba(255,255,255,0.8);
+background:rgba(255,255,255,0.9);
 padding:15px;border-radius:15px;
 cursor:pointer;
 transition:0.3s;
@@ -44,6 +33,39 @@ transition:0.3s;
 .box ul{padding-left:20px;}
 
 .wide{grid-column:span 2;}
+
+/* MENU */
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+margin-top:30px;
+}
+
+.menu-card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.menu-card:hover{transform:translateY(-5px);}
+
+.menu-card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.menu-content{
+padding:10px;
+}
+
+.price{
+color:#8b4513;
+font-weight:bold;
+}
 
 /* MODAL */
 .modal{
@@ -65,7 +87,7 @@ background:rgba(0,0,0,0.7);
 background:white;
 padding:20px;
 border-radius:20px;
-width:400px;
+width:350px;
 text-align:center;
 transform:scale(0.8);
 opacity:0;
@@ -77,13 +99,6 @@ transform:scale(1);
 opacity:1;
 }
 
-.modal img{
-width:100%;height:200px;
-object-fit:cover;
-border-radius:10px;
-margin:10px 0;
-}
-
 .close{
 position:absolute;
 right:20px;top:10px;
@@ -91,148 +106,128 @@ font-size:30px;
 cursor:pointer;
 }
 
-/* FLOAT IG */
-.ig-float{
+/* FLOAT */
+.ig-float,.wa-float{
 position:fixed;
-bottom:90px;
 right:20px;
 width:60px;height:60px;
-background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-box-shadow:0 8px 20px rgba(0,0,0,0.3);
 z-index:999;
-transition:0.3s;
 }
 
-.ig-float img{
-width:30px;
-filter:invert(1);
+.ig-float{bottom:90px;background:#e1306c;}
+.wa-float{bottom:20px;background:#25D366;}
+
+.ig-float img,.wa-float img{
+width:30px;filter:invert(1);
 }
 
-.ig-float:hover{
-transform:scale(1.15) rotate(10deg);
-}
-
-/* FLOAT WA */
-.wa-float{
-position:fixed;
-bottom:20px;
-right:20px;
-width:60px;height:60px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 8px 20px rgba(0,0,0,0.3);
-z-index:999;
-transition:0.3s;
-}
-
-.wa-float img{
-width:30px;
-filter:invert(1);
-}
-
-.wa-float:hover{
-transform:scale(1.15);
-box-shadow:0 12px 25px rgba(0,0,0,0.4);
-}
 </style>
 </head>
 
 <body>
 
-<img src="Background.jpeg" class="background">
-<div class="overlay"></div>
-
 <div class="container">
+
 <div class="header">
-<img src="logo.jpg">
 <h1>☕ Flamboyan Coffee</h1>
 </div>
 
 <div class="grid">
 
-<div class="box" onclick="showDetail('Key Partners','img1.png','Kerja sama supplier kopi, ojek online, influencer.')">
+<div class="box" onclick="showDetail('Key Partners','Kerja sama supplier kopi, ojek online, influencer.')">
 <h3>Key Partners</h3>
 <ul><li>Supplier kopi</li><li>Ojek online</li><li>Influencer</li></ul>
 </div>
 
-<div class="box" onclick="showDetail('Key Activities','img2.png','Menyeduh kopi, pelayanan, promosi.')">
+<div class="box" onclick="showDetail('Key Activities','Menyeduh kopi, pelayanan, promosi.')">
 <h3>Key Activities</h3>
-<ul><li>Menyeduh kopi</li><li>Pelayanan</li><li>Promosi</li></ul>
+<ul><li>Menyeduh kopi</li><li>Pelayanan</li></ul>
 </div>
 
-<div class="box wide" onclick="showDetail('Value Proposition','img3.png','Kopi enak, tempat nyaman, estetik.')">
+<div class="box wide" onclick="showDetail('Value Proposition','Kopi enak, tempat nyaman, estetik.')">
 <h3>Value Proposition</h3>
-<ul><li>Kopi berkualitas</li><li>Tempat nyaman</li><li>Estetik</li></ul>
+<ul><li>Kopi berkualitas</li><li>Tempat nyaman</li></ul>
 </div>
 
-<div class="box" onclick="showDetail('Customer Relationship','img4.png','Pelayanan ramah & loyalitas.')">
+<div class="box" onclick="showDetail('Customer Relationship','Pelayanan ramah & loyalitas.')">
 <h3>Customer Relationship</h3>
-<ul><li>Pelayanan ramah</li><li>Promo</li></ul>
+<ul><li>Pelayanan</li><li>Promo</li></ul>
 </div>
 
-<div class="box" onclick="showDetail('Customer Segments','img5.png','Mahasiswa & pekerja.')">
+<div class="box" onclick="showDetail('Customer Segments','Mahasiswa & pekerja.')">
 <h3>Customer Segments</h3>
 <ul><li>Mahasiswa</li><li>Pekerja</li></ul>
 </div>
 
-<div class="box" onclick="showDetail('Key Resources','img6.png','Barista & mesin kopi.')">
+<div class="box" onclick="showDetail('Key Resources','Barista & mesin kopi.')">
 <h3>Key Resources</h3>
 <ul><li>Barista</li><li>Mesin kopi</li></ul>
 </div>
 
-<div class="box" onclick="showDetail('Channels','img7.png','Instagram & GoFood.')">
+<div class="box" onclick="showDetail('Channels','Instagram & GoFood.')">
 <h3>Channels</h3>
 <ul><li>Instagram</li><li>GoFood</li></ul>
 </div>
 
-<div class="box" onclick="showDetail('Cost Structure','img8.png','Bahan & gaji.')">
+<div class="box" onclick="showDetail('Cost Structure','Bahan & gaji.')">
 <h3>Cost Structure</h3>
 <ul><li>Bahan baku</li><li>Gaji</li></ul>
 </div>
 
-<div class="box wide" onclick="showDetail('Revenue Streams','img9.png','Penjualan kopi.')">
+<div class="box wide" onclick="showDetail('Revenue Streams','Penjualan kopi.')">
 <h3>Revenue Streams</h3>
 <ul><li>Penjualan kopi</li></ul>
 </div>
 
 </div>
+
+<!-- MENU -->
+<h2 style="color:white;margin-top:30px;">Menu</h2>
+
+<div class="menu-grid">
+
+<div class="menu-card"><img src="menu1.jpg"><div class="menu-content">Espresso <div class="price">Rp18k</div></div></div>
+<div class="menu-card"><img src="menu2.jpg"><div class="menu-content">Americano <div class="price">Rp20k</div></div></div>
+<div class="menu-card"><img src="menu3.jpg"><div class="menu-content">Latte <div class="price">Rp25k</div></div></div>
+<div class="menu-card"><img src="menu4.jpg"><div class="menu-content">Cappuccino <div class="price">Rp25k</div></div></div>
+<div class="menu-card"><img src="menu5.jpg"><div class="menu-content">Matcha <div class="price">Rp24k</div></div></div>
+<div class="menu-card"><img src="menu6.jpg"><div class="menu-content">Chocolate <div class="price">Rp23k</div></div></div>
+<div class="menu-card"><img src="menu7.jpg"><div class="menu-content">Croissant <div class="price">Rp18k</div></div></div>
+<div class="menu-card"><img src="menu8.jpg"><div class="menu-content">Fries <div class="price">Rp17k</div></div></div>
+
+</div>
+
 </div>
 
 <!-- MODAL -->
 <div id="modal" class="modal" onclick="closeModal()">
-<div class="modal-content" onclick="event.stopPropagation()">
+<div class="modal-content">
 <span class="close" onclick="closeModal()">&times;</span>
 <h2 id="title"></h2>
-<img id="img">
 <p id="desc"></p>
 </div>
 </div>
 
-<!-- INSTAGRAM -->
-<a href=https://www.instagram.com/flamboyan.coffe_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw== target="_blank" class="ig-float">
+<!-- IG -->
+<a href="https://instagram.com/flmboyan.coffe_" target="_blank" class="ig-float">
 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
 </a>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/6285366759351" target="_blank" class="wa-float">
+<!-- WA -->
+<a href="https://wa.me/6281234567890" target="_blank" class="wa-float">
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 </a>
 
 <script>
-function showDetail(t,i,d){
+function showDetail(t,d){
 document.getElementById("title").innerText=t;
-document.getElementById("img").src=i;
 document.getElementById("desc").innerText=d;
 document.getElementById("modal").classList.add("show");
 }
-
 function closeModal(){
 document.getElementById("modal").classList.remove("show");
 }
