@@ -3,17 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flamboyan Coffee BMC</title>
+<title>Flamboyan Coffee</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Arial;background:#3e2723;color:#222;}
+
+body{
+font-family:Arial;
+background:#3e2723;
+color:#222;
+}
 
 .container{padding:20px;}
 .header{text-align:center;margin-bottom:20px;}
 
-.header h1{color:white;text-shadow:2px 2px 10px black;}
+.header h1{
+color:white;
+text-shadow:2px 2px 10px black;
+}
 
+/* BMC */
 .grid{
 display:grid;
 grid-template-columns:repeat(5,1fr);
@@ -22,7 +31,8 @@ gap:15px;
 
 .box{
 background:rgba(255,255,255,0.9);
-padding:15px;border-radius:15px;
+padding:15px;
+border-radius:15px;
 cursor:pointer;
 transition:0.3s;
 }
@@ -35,51 +45,55 @@ transition:0.3s;
 .wide{grid-column:span 2;}
 
 /* MENU */
-.menu-grid{
+.menu-list{
 display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
 margin-top:30px;
 }
 
-.menu-card{
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 8px 20px rgba(0,0,0,0.2);
-transition:0.3s;
+.menu-category{
+background:rgba(255,255,255,0.9);
+border-radius:18px;
+padding:18px;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
 
-.menu-card:hover{transform:translateY(-5px);}
-
-.menu-card img{
-width:100%;
-height:180px;
-object-fit:cover;
+.menu-category h3{
+margin-bottom:10px;
+color:#6d3d22;
 }
 
-.menu-content{
-padding:10px;
+.menu-category ul{list-style:none;}
+
+.menu-category li{
+display:flex;
+justify-content:space-between;
+padding:6px 0;
+border-bottom:1px dashed #ccc;
+font-size:0.95rem;
 }
 
-.price{
-color:#8b4513;
-font-weight:bold;
-}
+.menu-category li:last-child{border-bottom:none;}
+
+.menu-category b{color:#8b4513;}
 
 /* MODAL */
 .modal{
-position:fixed;inset:0;
+position:fixed;
+inset:0;
 display:flex;
 justify-content:center;
 align-items:center;
 background:rgba(0,0,0,0);
-opacity:0;visibility:hidden;
+opacity:0;
+visibility:hidden;
 transition:0.3s;
 }
 
 .modal.show{
-opacity:1;visibility:visible;
+opacity:1;
+visibility:visible;
 background:rgba(0,0,0,0.7);
 }
 
@@ -101,16 +115,18 @@ opacity:1;
 
 .close{
 position:absolute;
-right:20px;top:10px;
+right:20px;
+top:10px;
 font-size:30px;
 cursor:pointer;
 }
 
-/* FLOAT */
+/* FLOAT BUTTON */
 .ig-float,.wa-float{
 position:fixed;
 right:20px;
-width:60px;height:60px;
+width:60px;
+height:60px;
 border-radius:50%;
 display:flex;
 align-items:center;
@@ -122,9 +138,15 @@ z-index:999;
 .wa-float{bottom:20px;background:#25D366;}
 
 .ig-float img,.wa-float img{
-width:30px;filter:invert(1);
+width:30px;
+filter:invert(1);
 }
 
+/* RESPONSIVE */
+@media(max-width:768px){
+.grid{grid-template-columns:1fr;}
+.menu-list{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
@@ -134,11 +156,12 @@ width:30px;filter:invert(1);
 
   <div class="container">
     <div class="header">
-      <img src="logo.jpg" alt="Logo Flamboyan Coffee">
+      <img src="logo.png" alt="Logo Flamboyan Coffee">
       <h1>☕ Flamboyan Coffee</h1>
       <p>Tempat ngopi nyaman dengan suasana estetik dan pilihan menu favorit.</p>
     </div>
 
+<!-- BMC -->
 <div class="grid">
 
 <div class="box" onclick="showDetail('Key Partners','Kerja sama supplier kopi, ojek online, influencer.')">
@@ -189,18 +212,46 @@ width:30px;filter:invert(1);
 </div>
 
 <!-- MENU -->
-<h2 style="color:white;margin-top:30px;">Menu</h2>
+<h2 style="color:white;margin-top:30px;">Menu Flamboyan Coffee</h2>
 
-<div class="menu-grid">
+<div class="menu-list">
 
-<div class="menu-card"><img src="menu1.jpg"><div class="menu-content">Espresso <div class="price">Rp18k</div></div></div>
-<div class="menu-card"><img src="menu2.jpg"><div class="menu-content">Americano <div class="price">Rp20k</div></div></div>
-<div class="menu-card"><img src="menu3.jpg"><div class="menu-content">Latte <div class="price">Rp25k</div></div></div>
-<div class="menu-card"><img src="menu4.jpg"><div class="menu-content">Cappuccino <div class="price">Rp25k</div></div></div>
-<div class="menu-card"><img src="menu5.jpg"><div class="menu-content">Matcha <div class="price">Rp24k</div></div></div>
-<div class="menu-card"><img src="menu6.jpg"><div class="menu-content">Chocolate <div class="price">Rp23k</div></div></div>
-<div class="menu-card"><img src="menu7.jpg"><div class="menu-content">Croissant <div class="price">Rp18k</div></div></div>
-<div class="menu-card"><img src="menu8.jpg"><div class="menu-content">Fries <div class="price">Rp17k</div></div></div>
+<div class="menu-category">
+<h3>🍽️ Makanan</h3>
+<ul>
+<li><span>Aneka Bakaran</span><b>Rp1.000-5.000</b></li>
+<li><span>Ayam Bakar</span><b>Rp15.000</b></li>
+<li><span>Ayam Goreng</span><b>Rp22.000</b></li>
+<li><span>Ayam Kampung</span><b>Rp13.000</b></li>
+<li><span>Pecel Lele</span><b>Rp13.000</b></li>
+<li><span>Nasi Goreng</span><b>Rp10.000</b></li>
+<li><span>Mie Goreng + Telur</span><b>Rp10.000</b></li>
+<li><span>Mie Goreng + Telur + Bakso</span><b>Rp12.000</b></li>
+<li><span>Mie Rebus + Telur</span><b>Rp10.000</b></li>
+<li><span>Mie Rebus + Telur + Bakso</span><b>Rp12.000</b></li>
+<li><span>Pop Mie</span><b>Rp8.000</b></li>
+</ul>
+</div>
+
+<div class="menu-category">
+<h3>🥤 Minuman</h3>
+<ul>
+<li><span>Josu</span><b>Rp5.000</b></li>
+<li><span>Milk Tea</span><b>Rp5.000</b></li>
+<li><span>Aneka Es Coffee</span><b>Rp5.000</b></li>
+<li><span>Es Teh Jumbo</span><b>Rp3.000</b></li>
+<li><span>Es Tawar</span><b>Rp2.000</b></li>
+<li><span>Kopi</span><b>Rp5.000</b></li>
+<li><span>Susu</span><b>Rp5.000</b></li>
+</ul>
+</div>
+
+<div class="menu-category">
+<h3>📶 Fasilitas</h3>
+<ul>
+<li><span>Free WiFi</span><b>Gratis</b></li>
+</ul>
+</div>
 
 </div>
 
