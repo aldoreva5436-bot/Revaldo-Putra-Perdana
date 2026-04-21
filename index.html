@@ -30,7 +30,6 @@ color:#fff;
 background:rgba(255,255,255,0.08);
 padding:20px;
 border-radius:16px;
-line-height:1.7;
 margin-bottom:30px;
 text-align:center;
 }
@@ -71,7 +70,6 @@ border-radius:15px;
 .btn{padding:6px 10px;border:none;border-radius:10px;margin-top:5px;cursor:pointer;}
 .add{background:#6d4c41;color:white;}
 .order{background:#25D366;color:white;}
-.detail{background:#ffb74d;color:black;}
 
 /* CART */
 .cart-box{
@@ -79,12 +77,6 @@ margin-top:30px;
 background:rgba(255,255,255,0.08);
 padding:15px;
 border-radius:15px;
-}
-
-.cart-item{
-display:flex;
-justify-content:space-between;
-margin:5px 0;
 }
 
 .total{margin-top:10px;font-weight:bold;}
@@ -124,24 +116,6 @@ box-shadow:0 8px 20px rgba(0,0,0,0.4);
 .ig{bottom:90px;background:#E1306C;}
 
 .wa img,.ig img{width:32px;}
-
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.7);
-justify-content:center;
-align-items:center;
-}
-.modal-content{
-background:#2d1f18;
-padding:20px;
-border-radius:15px;
-max-width:400px;
-text-align:center;
-}
-.close{cursor:pointer;font-size:25px;}
 </style>
 </head>
 
@@ -168,15 +142,15 @@ Cocok untuk nongkrong, kerja, maupun santai. Dilengkapi free WiFi dan pelayanan 
 
 <h2 class="section-title section-center">📊 Business Model Canvas</h2>
 <div class="bmc">
-<div class="bmc-box" onclick="show('Key Partners','Supplier kopi, bahan, promosi IG')">Partners</div>
-<div class="bmc-box" onclick="show('Activities','Masak & seduh kopi')">Activities</div>
-<div class="bmc-box wide" onclick="show('Value','Nyaman, murah, WiFi')">Value</div>
-<div class="bmc-box" onclick="show('Customer','Mahasiswa, pekerja')">Customer</div>
-<div class="bmc-box" onclick="show('Relation','Ramah & cepat')">Relation</div>
-<div class="bmc-box" onclick="show('Resource','Tempat & alat')">Resource</div>
-<div class="bmc-box" onclick="show('Channel','WA & IG')">Channel</div>
-<div class="bmc-box" onclick="show('Cost','Operasional')">Cost</div>
-<div class="bmc-box wide" onclick="show('Revenue','Penjualan')">Revenue</div>
+<div class="bmc-box" onclick="alert('Supplier, bahan baku, promosi IG')">Partners</div>
+<div class="bmc-box" onclick="alert('Masak & seduh kopi')">Activities</div>
+<div class="bmc-box wide" onclick="alert('Nyaman, murah, WiFi')">Value</div>
+<div class="bmc-box" onclick="alert('Mahasiswa & pekerja')">Customer</div>
+<div class="bmc-box" onclick="alert('Pelayanan ramah')">Relation</div>
+<div class="bmc-box" onclick="alert('Tempat & alat')">Resource</div>
+<div class="bmc-box" onclick="alert('WA & IG')">Channel</div>
+<div class="bmc-box" onclick="alert('Operasional')">Cost</div>
+<div class="bmc-box wide" onclick="alert('Penjualan')">Revenue</div>
 </div>
 
 <h2 class="section-title">🍽️ Makanan</h2>
@@ -206,30 +180,31 @@ Cocok untuk nongkrong, kerja, maupun santai. Dilengkapi free WiFi dan pelayanan 
 <img src="whatsapp.png">
 </a>
 
-<div class="modal" id="modal">
-<div class="modal-content">
-<span class="close" onclick="closeModal()">×</span>
-<h2 id="title"></h2>
-<p id="desc"></p>
-</div>
-</div>
-
 <script>
 const WA="6285366759351";
 
 const foodItems=[
-["Ayam Bakar",15000],
-["Ayam Goreng",22000],
-["Nasi Goreng",10000],
-["Pecel Lele",13000],
-["Pop Mie",8000]
+["Aneka Bakaran","Rp1.000-5.000",3000],
+["Ayam Bakar","Rp15.000",15000],
+["Ayam Goreng","Rp22.000",22000],
+["Ayam Kampung","Rp13.000",13000],
+["Pecel Lele","Rp13.000",13000],
+["Nasi Goreng","Rp10.000",10000],
+["Mie Goreng + Telur","Rp10.000",10000],
+["Mie Goreng + Telur + Bakso","Rp12.000",12000],
+["Mie Rebus + Telur","Rp10.000",10000],
+["Mie Rebus + Telur + Bakso","Rp12.000",12000],
+["Pop Mie","Rp8.000",8000]
 ];
 
 const drinkItems=[
-["Kopi",5000],
-["Milk Tea",5000],
-["Es Teh",3000],
-["Susu",5000]
+["Josu","Rp5.000",5000],
+["Milk Tea","Rp5.000",5000],
+["Aneka Es Coffee","Rp5.000",5000],
+["Es Teh Jumbo","Rp3.000",3000],
+["Es Tawar","Rp2.000",2000],
+["Kopi","Rp5.000",5000],
+["Susu","Rp5.000",5000]
 ];
 
 let cart=[];
@@ -239,31 +214,32 @@ document.getElementById("food").innerHTML=foodItems.map(i=>card(i)).join("");
 document.getElementById("drink").innerHTML=drinkItems.map(i=>card(i)).join("");
 }
 
-function card(item){
+function card(i){
 return `
 <div class="card">
-<h3>${item[0]}</h3>
-<div class="price">Rp${item[1]}</div>
-<button class="btn add" onclick="add('${item[0]}',${item[1]})">+ Keranjang</button>
-<button class="btn order" onclick="order('${item[0]}')">Pesan</button>
+<h3>${i[0]}</h3>
+<div class="price">${i[1]}</div>
+<button class="btn add" onclick="add('${i[0]}',${i[2]})">+ Keranjang</button>
+<button class="btn order" onclick="order('${i[0]}')">Pesan</button>
 </div>`;
 }
 
 function add(n,p){
-let i=cart.find(x=>x.name==n);
-if(i)i.qty++;else cart.push({name:n,price:p,qty:1});
+let item=cart.find(x=>x.name==n);
+if(item)item.qty++; else cart.push({name:n,price:p,qty:1});
 renderCart();
 }
 
 function renderCart(){
-let t=0,c=0,html="";
+let html="",total=0,count=0;
 cart.forEach(i=>{
-t+=i.price*i.qty;c+=i.qty;
+total+=i.price*i.qty;
+count+=i.qty;
 html+=`${i.name} x${i.qty}<br>`;
 });
 document.getElementById("cart").innerHTML=html;
-document.getElementById("total").innerText="Total: Rp"+t;
-document.getElementById("count").innerText=c;
+document.getElementById("total").innerText="Total: Rp"+total;
+document.getElementById("count").innerText=count;
 }
 
 function order(n){
@@ -274,20 +250,10 @@ function checkout(){
 let name=document.getElementById("name").value;
 if(!name)return alert("Isi nama!");
 
-let msg="Halo saya "+name+" pesan:\\n";
-cart.forEach(i=>msg+=i.name+" x"+i.qty+"\\n");
+let msg="Halo saya "+name+" pesan:\n";
+cart.forEach(i=>msg+=i.name+" x"+i.qty+"\n");
 
 window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`);
-}
-
-function show(t,d){
-document.getElementById("modal").style.display="flex";
-document.getElementById("title").innerText=t;
-document.getElementById("desc").innerText=d;
-}
-
-function closeModal(){
-document.getElementById("modal").style.display="none";
 }
 
 renderMenu();
